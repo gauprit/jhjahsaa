@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Development | Hyquantix Technologies Pvt. Ltd.</title>
+  <link rel="icon" type="image/png" href="logo2.png" />
+
+  <!-- Tailwind, Fonts, Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body { font-family: 'Manrope', sans-serif; background-color: #f9fafb; color: #1f2937; }
+    .nav-item { color: #374151; transition: color 0.3s ease; }
+    .nav-item:hover { color: #0ea5e9; }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #06b6d4, #6366f1);
+      color: white; font-weight: 600;
+      padding: 0.7rem 1.6rem;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(14,165,233,0.3); }
+  </style>
+</head>
+
+<body>
+<!-- HEADER FROM ABOUT PAGE (Unchanged) -->
+<header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/90 border-b border-gray-200 shadow-sm">
+  <div class="container mx-auto flex items-center justify-between px-6 py-4">
+    <div class="flex items-center space-x-3">
+      <a href="/">
+        <img src="logo.png" alt="Hyquantix Logo" class="w-32 md:w-40 h-auto object-contain">
+      </a>
+      <p class="hidden sm:block text-sm text-gray-500">Intelligent · Reliable · Secure</p>
+    </div>
+
+    <nav class="hidden md:flex space-x-8 font-medium">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/about/" class="nav-item">About</a>
+      <a href="/services/" class="nav-item text-cyan-600 font-semibold">Services</a>
+      <a href="/career/" class="nav-item">Careers</a>
+      <a href="/contact/" class="nav-item">Contact</a>
+    </nav>
+
+    <a href="/impact/" class="hidden md:inline-block px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold shadow-md hover:shadow-lg transition">
+      Our Impact
+    </a>
+
+    <button id="menu-toggle" class="md:hidden text-gray-800 text-3xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
+
+<div id="mobile-menu"
+     class="fixed top-0 right-0 h-full w-72 bg-white shadow-2xl transform translate-x-full transition-transform z-50 flex flex-col p-8 space-y-6">
+  <button id="close-menu" class="self-end text-3xl text-gray-600 hover:text-cyan-600">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <nav class="flex flex-col space-y-5 text-lg font-medium">
+    <a href="/" class="nav-item">Home</a>
+    <a href="/about/" class="nav-item">About</a>
+    <a href="/services/" class="nav-item text-cyan-600 font-semibold">Services</a>
+    <a href="/career/" class="nav-item">Careers</a>
+    <a href="/contact/" class="nav-item">Contact</a>
+    <a href="/impact/" class="btn-primary text-center py-3">Our Impact</a>
+  </nav>
+</div>
+
+<section class="pt-40 pb-24 bg-gradient-to-b from-white via-gray-50 to-gray-100 text-center relative overflow-hidden">
+
+  <!-- Soft Corporate Ambient -->
+  <div class="absolute inset-0 bg-gradient-to-r from-cyan-300/10 via-blue-200/10 to-indigo-300/10 blur-[100px] -z-10"></div>
+
+  <div class="container mx-auto px-6">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
+      Web <span class="text-cyan-600">Development</span> Services
+    </h1>
+
+    <p class="max-w-2xl mx-auto text-gray-600 text-lg md:text-xl leading-relaxed">
+      Build fast, scalable, and secure digital platforms engineered for long-term
+      growth and enterprise performance.
+    </p>
+
+    <div class="mt-10">
+      <a href="/contact/" 
+         class="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 
+                text-white font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+        Start Your Project
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HERO SECTION -->
+<section class="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 border-y border-gray-200 relative overflow-hidden">
+
+  <!-- Soft Ambient Corporate Glow -->
+  <div class="absolute inset-0 blur-[120px] opacity-20 bg-gradient-to-r from-cyan-300 via-blue-200 to-indigo-300 -z-10"></div>
+
+  <div class="w-full max-w-[1600px] mx-auto px-8 relative">
+
+    <h2 class="text-5xl font-extrabold text-center text-gray-900 mb-6 tracking-tight">
+      Our <span class="text-cyan-600">Web Development</span> Approach
+    </h2>
+
+    <p class="text-gray-600 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-20">
+      A structured, engineering-driven workflow designed for clarity, reliability, and performance.
+    </p>
+
+    <!-- Timeline line -->
+    <div class="hidden md:block absolute top-[55%] left-0 right-0">
+      <div class="w-2/3 mx-auto h-[2px] bg-gray-300/40 rounded-full"></div>
+    </div>
+
+    <!-- 6 Steps -->
+    <div class="grid md:grid-cols-3 gap-16 relative z-10">
+
+      <!-- Step Template -->
+      <!-- Step 1 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400/40 to-indigo-500/40 rounded-3xl blur-md opacity-30 
+                    group-hover:opacity-50 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                    group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+          
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-cyan-100 flex items-center justify-center shadow-inner 
+                      group-hover:scale-105 transition">
+            <i data-lucide="lightbulb" class="w-9 h-9 text-cyan-600"></i>
+          </div>
+
+          <h4 class="text-2xl font-semibold text-gray-900 mb-3 text-center">Requirement Discovery</h4>
+          <p class="text-gray-600 text-center leading-relaxed mb-4">
+            Deep research into your business model, user needs, and product goals.
+          </p>
+          <ul class="text-gray-600 text-sm list-disc pl-6">
+            <li>Business requirements</li>
+            <li>User journeys</li>
+            <li>Goal alignment</li>
+            <li>Problem definition</li>
+          </ul>
+
+          <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white px-5 py-1 rounded-full 
+                         shadow-md font-semibold text-cyan-600 border border-cyan-200 text-sm">
+            Step 1
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500/40 to-blue-400/40 rounded-3xl blur-md opacity-30 
+                    group-hover:opacity-50 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                    group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-indigo-100 flex items-center justify-center shadow-inner 
+                      group-hover:scale-105 transition">
+            <i data-lucide="layout-template" class="w-9 h-9 text-indigo-600"></i>
+          </div>
+
+          <h4 class="text-2xl font-semibold text-gray-900 mb-3 text-center">UI/UX & Architecture</h4>
+          <p class="text-gray-600 text-center leading-relaxed mb-4">
+            Visual design & robust technical architecture tailored for future scalability.
+          </p>
+          <ul class="text-gray-600 text-sm list-disc pl-6">
+            <li>Wireframes & prototypes</li>
+            <li>Database planning</li>
+            <li>Component structure</li>
+            <li>Security planning</li>
+          </ul>
+
+          <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white px-5 py-1 rounded-full 
+                         shadow-md font-semibold text-indigo-600 border border-indigo-200 text-sm">
+            Step 2
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/40 to-cyan-400/40 rounded-3xl blur-md opacity-30 
+                    group-hover:opacity-50 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                    group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-blue-100 flex items-center justify-center shadow-inner 
+                      group-hover:scale-105 transition">
+            <i data-lucide="code" class="w-9 h-9 text-blue-600"></i>
+          </div>
+
+          <h4 class="text-2xl font-semibold text-gray-900 mb-3 text-center">Development & Engineering</h4>
+          <p class="text-gray-600 text-center leading-relaxed mb-4">
+            Clean, scalable, and efficient code following industry-best engineering practices.
+          </p>
+          <ul class="text-gray-600 text-sm list-disc pl-6">
+            <li>Full-stack development</li>
+            <li>API creation</li>
+            <li>Performance optimization</li>
+            <li>Cloud-ready solutions</li>
+          </ul>
+
+          <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white px-5 py-1 rounded-full 
+                         shadow-md font-semibold text-blue-600 border border-blue-200 text-sm">
+            Step 3
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-purple-500/40 to-indigo-500/40 rounded-3xl blur-md opacity-30 
+                    group-hover:opacity-50 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                    group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-purple-100 flex items-center justify-center shadow-inner 
+                      group-hover:scale-105 transition">
+            <i data-lucide="scan" class="w-9 h-9 text-purple-600"></i>
+          </div>
+
+          <h4 class="text-2xl font-semibold text-gray-900 mb-3 text-center">Testing & Quality Assurance</h4>
+          <p class="text-gray-600 text-center leading-relaxed mb-4">
+            Multi-layer testing ensures reliability, consistency, and performance at scale.
+          </p>
+          <ul class="text-gray-600 text-sm list-disc pl-6">
+            <li>Unit testing</li>
+            <li>API validation</li>
+            <li>UI/UX review</li>
+            <li>Speed optimization</li>
+          </ul>
+
+          <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white px-5 py-1 rounded-full 
+                         shadow-md font-semibold text-purple-600 border border-purple-200 text-sm">
+            Step 4
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-green-500/40 to-cyan-500/40 rounded-3xl blur-md opacity-30 
+                    group-hover:opacity-50 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                    group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center shadow-inner 
+                      group-hover:scale-105 transition">
+            <i data-lucide="rocket" class="w-9 h-9 text-green-600"></i>
+          </div>
+
+          <h4 class="text-2xl font-semibold text-gray-900 mb-3 text-center">Deployment & Go-Live</h4>
+          <p class="text-gray-600 text-center leading-relaxed mb-4">
+            Secure, stable, and optimized deployment across leading cloud platforms.
+          </p>
+          <ul class="text-gray-600 text-sm list-disc pl-6">
+            <li>AWS / GCP / Azure</li>
+            <li>CI/CD automation</li>
+            <li>Security hardening</li>
+            <li>Zero downtime rollout</li>
+          </ul>
+
+          <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white px-5 py-1 rounded-full 
+                         shadow-md font-semibold text-green-600 border border-green-200 text-sm">
+            Step 5
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-orange-500/40 to-red-400/40 rounded-3xl blur-md opacity-30 
+                    group-hover:opacity-50 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white rounded-2xl border border-gray-200 shadow-sm 
+                    group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-orange-100 flex items-center justify-center shadow-inner 
+                      group-hover:scale-105 transition">
+            <i data-lucide="life-buoy" class="w-9 h-9 text-orange-500"></i>
+          </div>
+
+          <h4 class="text-2xl font-semibold text-gray-900 mb-3 text-center">Maintenance & Growth Tracking</h4>
+          <p class="text-gray-600 text-center leading-relaxed mb-4">
+            Continuous monitoring, updates, enhancements, and performance tuning.
+          </p>
+          <ul class="text-gray-600 text-sm list-disc pl-6">
+            <li>24/7 monitoring</li>
+            <li>Feature updates</li>
+            <li>Performance audits</li>
+            <li>Long-term support</li>
+          </ul>
+
+          <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white px-5 py-1 rounded-full 
+                         shadow-md font-semibold text-orange-600 border border-orange-200 text-sm">
+            Step 6
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<section class="py-32 bg-gradient-to-br from-white via-gray-50 to-gray-100 relative overflow-hidden">
+
+  <!-- Soft floating glow background -->
+  <div class="absolute inset-0 bg-gradient-to-r from-cyan-300/20 via-blue-200/20 to-indigo-300/20 blur-[120px] -z-10"></div>
+
+  <div class="w-full max-w-[1500px] mx-auto px-8 relative">
+
+    <h2 class="text-5xl font-extrabold text-center text-gray-900 mb-6 tracking-tight">
+      Technologies We <span class="text-cyan-600">Excel</span> In
+    </h2>
+
+    <p class="text-gray-600 text-center max-w-2xl mx-auto mb-20 text-lg leading-relaxed">
+      We build with modern, secure, fast, and scalable technologies trusted by global enterprises.
+    </p>
+
+    <!-- Tech Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-12">
+
+      <!-- Card -->
+      <div class="relative group">
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-400/40 to-blue-500/40 blur-xl opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+        <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 text-center">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-xl bg-cyan-50 flex justify-center items-center group-hover:scale-110 transition">
+            <i data-lucide="globe" class="w-8 h-8 text-cyan-600"></i>
+          </div>
+          <p class="font-semibold text-gray-800">HTML / CSS / JS</p>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-400/40 to-purple-500/40 blur-xl opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+        <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 text-center">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-xl bg-indigo-50 flex justify-center items-center group-hover:scale-110 transition">
+            <i data-lucide="server" class="w-8 h-8 text-indigo-600"></i>
+          </div>
+          <p class="font-semibold text-gray-800">Node.js / Express</p>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/40 to-cyan-400/40 blur-xl opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+        <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 text-center">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-xl bg-blue-50 flex justify-center items-center group-hover:scale-110 transition">
+            <i data-lucide="box" class="w-8 h-8 text-blue-600"></i>
+          </div>
+          <p class="font-semibold text-gray-800">React / Next.js</p>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/40 to-fuchsia-500/40 blur-xl opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+        <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 text-center">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-xl bg-purple-50 flex justify-center items-center group-hover:scale-110 transition">
+            <i data-lucide="database" class="w-8 h-8 text-purple-600"></i>
+          </div>
+          <p class="font-semibold text-gray-800">MongoDB / SQL</p>
+        </div>
+      </div>
+
+      <!-- Extra Technologies -->
+
+      <div class="relative group">
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-400/40 to-emerald-500/40 blur-xl opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+        <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 text-center">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-xl bg-green-50 flex justify-center items-center group-hover:scale-110 transition">
+            <i data-lucide="cloud" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <p class="font-semibold text-gray-800">AWS / Cloud</p>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-400/40 to-red-500/40 blur-xl opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+        <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 text-center">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-xl bg-orange-50 flex justify-center items-center group-hover:scale-110 transition">
+            <i data-lucide="git-branch" class="w-8 h-8 text-orange-500"></i>
+          </div>
+          <p class="font-semibold text-gray-800">Git / CI-CD</p>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-400/40 to-cyan-500/40 blur-xl opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+        <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 text-center">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-xl bg-teal-50 flex justify-center items-center group-hover:scale-110 transition">
+            <i data-lucide="terminal" class="w-8 h-8 text-teal-600"></i>
+          </div>
+          <p class="font-semibold text-gray-800">Python / Automation</p>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-yellow-400/40 to-amber-500/40 blur-xl opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+        <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 text-center">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-xl bg-yellow-50 flex justify-center items-center group-hover:scale-110 transition">
+            <i data-lucide="link" class="w-8 h-8 text-yellow-600"></i>
+
+          </div>
+          <p class="font-semibold text-gray-800">API Integrations</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- WHY CHOOSE US -->
+<section class="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+
+  <!-- Soft Background Glow -->
+  <div class="absolute inset-0 blur-[130px] opacity-30 bg-gradient-to-r from-cyan-300 via-blue-200 to-indigo-400 -z-10"></div>
+
+  <div class="w-full max-w-[1600px] mx-auto px-8 relative z-10">
+    
+    <h2 class="text-5xl font-extrabold text-center text-gray-900 mb-6 tracking-tight">
+      Why Choose <span class="text-cyan-600">Hyquantix?</span>
+    </h2>
+
+    <p class="text-gray-600 text-center max-w-2xl mx-auto mb-20 text-lg leading-relaxed">
+      We combine engineering intelligence, precision execution, and future-ready technology to 
+      deliver products that are secure, scalable, and built for long-term impact.
+    </p>
+
+    <!-- Features Grid -->
+    <div class="grid md:grid-cols-3 gap-14">
+
+      <!-- Card 1 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-3xl blur-md opacity-40 group-hover:opacity-70 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white border border-gray-200 rounded-2xl shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-cyan-100 flex items-center justify-center shadow-inner group-hover:scale-110 transition">
+            <i data-lucide="shield-check" class="w-8 h-8 text-cyan-600"></i>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900 mb-3 text-center">Security-First Engineering</h4>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Every solution is built with enterprise-grade security, encryption, and multi-layer validation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-3xl blur-md opacity-40 group-hover:opacity-70 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white border border-gray-200 rounded-2xl shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-indigo-100 flex items-center justify-center shadow-inner group-hover:scale-110 transition">
+            <i data-lucide="cpu" class="w-8 h-8 text-indigo-600"></i>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900 mb-3 text-center">High Performance Systems</h4>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Lightning-fast applications built with optimized queries, caching, and scalable architecture.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl blur-md opacity-40 group-hover:opacity-70 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white border border-gray-200 rounded-2xl shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-blue-100 flex items-center justify-center shadow-inner group-hover:scale-110 transition">
+            <i data-lucide="users" class="w-8 h-8 text-blue-600"></i>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900 mb-3 text-center">End-to-End Partnership</h4>
+          <p class="text-gray-600 text-center leading-relaxed">
+            From strategy to deployment — we stay with you as long-term technology partners.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-3xl blur-md opacity-40 group-hover:opacity-70 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white border border-gray-200 rounded-2xl shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center shadow-inner group-hover:scale-110 transition">
+            <i data-lucide="rocket" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900 mb-3 text-center">Faster Time-to-Market</h4>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Agile development frameworks ensure fast delivery without compromising quality.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-orange-400 to-red-500 rounded-3xl blur-md opacity-40 group-hover:opacity-70 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white border border-gray-200 rounded-2xl shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-orange-100 flex items-center justify-center shadow-inner group-hover:scale-110 transition">
+            <i data-lucide="sparkles" class="w-8 h-8 text-orange-500"></i>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900 mb-3 text-center">Pixel-Perfect UI/UX</h4>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Beautiful, intuitive, and user-centered designs that elevate your brand identity.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 to-fuchsia-500 rounded-3xl blur-md opacity-40 group-hover:opacity-70 transition-all duration-500"></div>
+
+        <div class="relative p-10 bg-white border border-gray-200 rounded-2xl shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-2">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-purple-100 flex items-center justify-center shadow-inner group-hover:scale-110 transition">
+            <i data-lucide="infinity" class="w-8 h-8 text-purple-600"></i>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900 mb-3 text-center">Continuous Improvement</h4>
+          <p class="text-gray-600 text-center leading-relaxed">
+            We deliver updates, new features, and optimizations as your business evolves.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- CTA SECTION -->
+<section class="py-24 bg-white text-center">
+  <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Ready to Build Something Powerful?</h2>
+  <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+    Let’s create a high-performing web platform that boosts your business growth.
+  </p>
+
+  <a href="/contact/" class="btn-primary text-lg">Start Your Project</a>
+</section>
+
+
+<!-- FOOTER (Same as About Page) -->
+<footer class="bg-gray-50 border-t border-gray-200 py-12 text-gray-500 text-sm">
+  <div class="container mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+
+    <div>
+      <h4 class="text-base font-semibold text-gray-900 mb-3">Hyquantix Technologies</h4>
+      <p class="text-gray-600 mb-3">
+        Intelligent, reliable, and secure digital solutions built for scalable growth.
+      </p>
+      <p class="text-gray-400 text-xs">GautamBudh Nagar, India</p>
+    </div>
+
+    <div>
+      <h5 class="text-sm font-semibold text-gray-900 mb-3">Company</h5>
+      <ul class="space-y-1">
+        <li><a href="/about/" class="hover:text-cyan-600">About</a></li>
+        <li><a href="/career/" class="hover:text-cyan-600">Careers</a></li>
+        <li><a href="/services/" class="hover:text-cyan-600">Services</a></li>
+        <li><a href="/contact/" class="hover:text-cyan-600">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5 class="text-sm font-semibold text-gray-900 mb-3">Resources</h5>
+      <ul class="space-y-1">
+        <li><a href="/privacy/" class="hover:text-cyan-600">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-cyan-600">Terms</a></li>
+        <li><a href="#" class="hover:text-cyan-600">Support</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5 class="text-sm font-semibold text-gray-900 mb-3">Contact</h5>
+      <p class="text-gray-600 mb-1">📧 support@hyquantix.com</p>
+      <p class="text-gray-600 mb-3">📞 +91-8700790835</p>
+      <div class="flex justify-center md:justify-start space-x-4 text-lg">
+        <a href="#" class="hover:text-cyan-600"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="hover:text-cyan-600"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-cyan-600"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="border-t border-gray-200 mt-10 pt-4 text-center text-xs text-gray-400">
+    © 2025 <span class="text-gray-600">Hyquantix Technologies Pvt. Ltd.</span> · All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    lucide.createIcons();
+
+    // Mobile menu
+    const toggle = document.getElementById("menu-toggle");
+    const closeBtn = document.getElementById("close-menu");
+    const menu = document.getElementById("mobile-menu");
+    const overlay = document.getElementById("mobile-menu-overlay");
+
+    const openMenu = () => {
+      menu.classList.remove("translate-x-full");
+      overlay.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeMenu = () => {
+      menu.classList.add("translate-x-full");
+      overlay.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    };
+
+    toggle.addEventListener("click", openMenu);
+    closeBtn.addEventListener("click", closeMenu);
+    overlay.addEventListener("click", closeMenu);
+  });
+</script>
+
+</body>
+</html>
