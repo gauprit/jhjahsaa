@@ -29,6 +29,34 @@
     .nav-item { transition: 0.3s; color:#374151;}
     .nav-item:hover { color:#0ea5e9; }
   </style>
+  <style>
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes lineGrow {
+  0% { width: 0; opacity: 0; }
+  100% { width: 100%; opacity: 1; }
+}
+
+.animate-fadeIn { animation: fadeIn .8s ease forwards; }
+.animate-fadeInSlow { animation: fadeIn 1.4s ease forwards; }
+
+.animate-lineGrow { animation: lineGrow 1s ease-out forwards; }
+
+.animate-step1 { animation: fadeUp .6s ease .2s forwards; opacity: 0; }
+.animate-step2 { animation: fadeUp .6s ease .4s forwards; opacity: 0; }
+.animate-step3 { animation: fadeUp .6s ease .6s forwards; opacity: 0; }
+.animate-step4 { animation: fadeUp .6s ease .8s forwards; opacity: 0; }
+.animate-step5 { animation: fadeUp .6s ease 1s forwards; opacity: 0; }
+.animate-step6 { animation: fadeUp .6s ease 1.2s forwards; opacity: 0; }
+</style>
 </head>
 
 <body>
@@ -319,65 +347,97 @@
     </div>
   </div>
 </section>
-<section class="py-28 bg-gradient-to-br from-gray-50 via-white to-gray-100 text-center border-y border-gray-200">
-  <div class="max-w-5xl mx-auto px-6">
+<section class="py-28 bg-white text-center border-y border-gray-200">
+  <div class="max-w-7xl mx-auto px-6">
 
-    <h2 class="text-4xl font-extrabold text-gray-900 mb-8">
+    <!-- Heading -->
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-4 animate-fadeIn">
       Our <span class="text-cyan-600">Scraping Pipeline</span>
     </h2>
-    <p class="text-gray-600 max-w-2xl mx-auto mb-20">
+    <p class="text-gray-600 max-w-2xl mx-auto mb-16 animate-fadeInSlow">
       A fully automated, fault-tolerant extraction pipeline ensuring accuracy at every stage.
     </p>
 
-    <div class="space-y-12 relative">
+    <!-- Horizontal Scroll Wrapper -->
+    <div class="overflow-x-auto">
+      <div class="relative flex gap-24 items-start py-20 min-w-max">
 
-      <div class="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-gray-300"></div>
+        <!-- Line -->
+        <div class="absolute top-20 left-0 w-full h-[2px] bg-gray-200 animate-lineGrow"></div>
 
-      <!-- Step 1 -->
-      <div class="flex flex-col items-center">
-        <div class="w-12 h-12 rounded-full bg-cyan-500 text-white flex items-center justify-center text-lg font-bold">1</div>
-        <h4 class="text-xl font-semibold mt-4">URL & Selector Analysis</h4>
-        <p class="text-gray-600 max-w-md text-sm">We analyze website structure, blocks, rate-limits & anti-bot tech.</p>
+        <!-- Step 1 -->
+        <div class="relative flex flex-col items-center w-60 animate-step1 hover:scale-[1.04] transition">
+          <div class="h-14 w-14 flex items-center justify-center text-3xl mb-6">
+            🔍
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900">URL & Selector Analysis</h4>
+          <p class="text-gray-600 text-sm mt-2 max-w-xs">
+            Mapping site structure, rate-limits, dynamic elements & anti-bot systems.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative flex flex-col items-center w-60 animate-step2 hover:scale-[1.04] transition">
+          <div class="h-14 w-14 flex items-center justify-center text-3xl mb-6">
+            ⚙️
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900">Crawler Engine Setup</h4>
+          <p class="text-gray-600 text-sm mt-2 max-w-xs">
+            Building optimized spiders using Scrapy, Playwright, headless browsers & APIs.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative flex flex-col items-center w-60 animate-step3 hover:scale-[1.04] transition">
+          <div class="h-14 w-14 flex items-center justify-center text-3xl mb-6">
+            🛡️
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900">Anti-Block Defense</h4>
+          <p class="text-gray-600 text-sm mt-2 max-w-xs">
+            Proxy pools, captchas, fingerprinting & human-like browsing simulation.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative flex flex-col items-center w-60 animate-step4 hover:scale-[1.04] transition">
+          <div class="h-14 w-14 flex items-center justify-center text-3xl mb-6">
+            📦
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900">Data Extraction</h4>
+          <p class="text-gray-600 text-sm mt-2 max-w-xs">
+            Structured extraction with CSS/XPath selectors, regex, AI-based parsing.
+          </p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative flex flex-col items-center w-60 animate-step5 hover:scale-[1.04] transition">
+          <div class="h-14 w-14 flex items-center justify-center text-3xl mb-6">
+            🧹
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900">Cleaning & Structuring</h4>
+          <p class="text-gray-600 text-sm mt-2 max-w-xs">
+            Deduplication, enrichment, validation & format normalization across datasets.
+          </p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="relative flex flex-col items-center w-60 animate-step6 hover:scale-[1.04] transition">
+          <div class="h-14 w-14 flex items-center justify-center text-3xl mb-6">
+            🚚
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900">Delivery & Integration</h4>
+          <p class="text-gray-600 text-sm mt-2 max-w-xs">
+            CSV/JSON exports, API endpoints, automated pipelines & direct database sync.
+          </p>
+        </div>
+
       </div>
-
-      <!-- Step 2 -->
-      <div class="flex flex-col items-center">
-        <div class="w-12 h-12 rounded-full bg-indigo-500 text-white flex items-center justify-center text-lg font-bold">2</div>
-        <h4 class="text-xl font-semibold mt-4">Crawler Engine Setup</h4>
-        <p class="text-gray-600 max-w-md text-sm">Custom spiders built using Scrapy, Playwright, or API interception.</p>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="flex flex-col items-center">
-        <div class="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center text-lg font-bold">3</div>
-        <h4 class="text-xl font-semibold mt-4">Anti-Block Defense Layer</h4>
-        <p class="text-gray-600 max-w-md text-sm">Proxies, captchas, fingerprinting & delay randomization.</p>
-      </div>
-
-      <!-- Step 4 -->
-      <div class="flex flex-col items-center">
-        <div class="w-12 h-12 rounded-full bg-purple-500 text-white flex items-center justify-center text-lg font-bold">4</div>
-        <h4 class="text-xl font-semibold mt-4">Data Extraction</h4>
-        <p class="text-gray-600 max-w-md text-sm">Structured extraction using CSS, XPath, regex & AI parsers.</p>
-      </div>
-
-      <!-- Step 5 -->
-      <div class="flex flex-col items-center">
-        <div class="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center text-lg font-bold">5</div>
-        <h4 class="text-xl font-semibold mt-4">Cleaning & Structuring</h4>
-        <p class="text-gray-600 max-w-md text-sm">Deduplication, validation, enrichment & format normalization.</p>
-      </div>
-
-      <!-- Step 6 -->
-      <div class="flex flex-col items-center">
-        <div class="w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center text-lg font-bold">6</div>
-        <h4 class="text-xl font-semibold mt-4">Delivery & Integration</h4>
-        <p class="text-gray-600 max-w-md text-sm">Export to CSV/JSON/XLSX, API integration or direct DB push.</p>
-      </div>
-
     </div>
+
   </div>
 </section>
+
+
 <section class="py-28 bg-white text-center">
   <div class="max-w-6xl mx-auto px-6">
 
