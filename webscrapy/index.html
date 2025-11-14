@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Web Scraping Services | Hyquantix Technologies Pvt. Ltd.</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Hyquantix provides advanced web scraping and data extraction solutions for businesses—fast, accurate, scalable, and fully automated.">
+  <meta name="keywords" content="web scraping, data extraction, automation, scraping tools, enterprise scraping, hyquantix web scraping">
+  <meta property="og:title" content="Web Scraping Services | Hyquantix" />
+  <meta property="og:description" content="Powerful and scalable web scraping solutions for business insights." />
+  <meta property="og:image" content="/seo-banner.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/png" href="logo2.png" />
+
+  <!-- Tailwind + Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: #f9fafb;
+    }
+    .nav-item { transition: 0.3s; color:#374151;}
+    .nav-item:hover { color:#0ea5e9; }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/90 border-b border-gray-200 shadow-sm">
+  <div class="container mx-auto flex items-center justify-between px-6 py-4">
+    
+    <div class="flex items-center space-x-3">
+      <a href="/">
+        <img src="logo.png" class="w-32 md:w-40 h-auto" alt="Hyquantix Logo">
+      </a>
+      <p class="hidden sm:block text-sm text-gray-500">Intelligent · Reliable · Secure</p>
+    </div>
+
+    <nav class="hidden md:flex space-x-8 font-medium">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/about/" class="nav-item">About</a>
+      <a href="/services/" class="nav-item text-cyan-600 font-semibold">Services</a>
+      <a href="/career/" class="nav-item">Careers</a>
+      <a href="/contact/" class="nav-item">Contact</a>
+    </nav>
+
+    <button id="menu-toggle" class="md:hidden text-gray-800">
+      <i data-lucide="menu" class="w-8 h-8"></i>
+    </button>
+
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
+
+<div id="mobile-menu"
+     class="fixed top-0 right-0 h-full w-72 bg-white shadow-2xl transform translate-x-full transition-transform z-50 flex flex-col p-8 space-y-6">
+  
+  <button id="close-menu" class="self-end text-gray-600 hover:text-cyan-600">
+    <i data-lucide="x" class="w-8 h-8"></i>
+  </button>
+
+  <nav class="flex flex-col space-y-5 text-lg font-medium">
+    <a href="/" class="nav-item">Home</a>
+    <a href="/about/" class="nav-item">About</a>
+    <a href="/services/" class="nav-item text-cyan-600 font-semibold">Services</a>
+    <a href="/career/" class="nav-item">Careers</a>
+    <a href="/contact/" class="nav-item">Contact</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="pt-40 pb-24 text-center bg-gradient-to-b from-white via-gray-50 to-gray-100 relative">
+  
+  <div class="absolute inset-0 bg-gradient-to-r from-cyan-300/10 via-blue-200/10 to-indigo-300/10 blur-[120px] -z-10"></div>
+
+  <h1 class="text-5xl font-extrabold text-gray-900 mb-6">
+    Web <span class="text-cyan-600">Scraping</span> Services
+  </h1>
+
+  <p class="max-w-2xl mx-auto text-lg text-gray-600">
+    Extract data at scale, automate workflows, and convert raw information into business intelligence.
+  </p>
+
+  <a href="/contact/"
+     class="mt-8 inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-[1.03] transition">
+    Get Started
+  </a>
+
+</section>
+
+<!-- WHAT WE DO -->
+<section class="py-28 bg-white text-center border-y border-gray-200 relative overflow-hidden">
+
+  <!-- Soft Ambient Background -->
+  <div class="absolute inset-0 bg-gradient-to-r from-cyan-300/10 via-blue-200/10 to-indigo-300/10 blur-[120px] -z-10"></div>
+
+  <div class="max-w-[1600px] mx-auto px-6">
+
+    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+      What We <span class="text-cyan-600">Deliver</span>
+    </h2>
+
+    <p class="text-gray-600 max-w-3xl mx-auto mb-20 leading-relaxed text-lg">
+      Our enterprise-grade web scraping infrastructure extracts structured, accurate and real-time data 
+      from complex websites with unparalleled speed, reliability and intelligence.
+    </p>
+
+    <!-- GRID -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+
+      <!-- CARD 1 -->
+      <div class="group p-10 bg-gray-50 border border-gray-200 rounded-2xl shadow-sm 
+                  hover:shadow-2xl hover:border-cyan-400 transition duration-300">
+        <div class="w-16 h-16 mx-auto rounded-xl bg-cyan-100 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <i data-lucide="database" class="w-10 h-10 text-cyan-600"></i>
+        </div>
+        <h4 class="text-2xl font-semibold text-gray-900 mb-3">Large Scale Data Extraction</h4>
+        <p class="text-gray-600 leading-relaxed">
+          From small datasets to millions of records — we extract, normalize, and enrich data 
+          without performance bottlenecks using distributed scraping pipelines.
+        </p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="group p-10 bg-gray-50 border border-gray-200 rounded-2xl shadow-sm 
+                  hover:shadow-2xl hover:border-blue-400 transition duration-300">
+        <div class="w-16 h-16 mx-auto rounded-xl bg-blue-100 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <i data-lucide="scan" class="w-10 h-10 text-blue-600"></i>
+        </div>
+        <h4 class="text-2xl font-semibold text-gray-900 mb-3">Clean & API-Ready Output</h4>
+        <p class="text-gray-600 leading-relaxed">
+          Receive fully structured data in clean JSON, CSV, Excel, XML or connect directly with 
+          your platform via REST API for real-time ingestion.
+        </p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="group p-10 bg-gray-50 border border-gray-200 rounded-2xl shadow-sm 
+                  hover:shadow-2xl hover:border-indigo-400 transition duration-300">
+        <div class="w-16 h-16 mx-auto rounded-xl bg-indigo-100 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <i data-lucide="shield-check" class="w-10 h-10 text-indigo-600"></i>
+        </div>
+        <h4 class="text-2xl font-semibold text-gray-900 mb-3">Bot Detection & Anti-Block Bypass</h4>
+        <p class="text-gray-600 leading-relaxed">
+          We use rotating proxies, headless browsers, captcha solvers and browser fingerprinting 
+          to bypass advanced anti-bot systems safely.
+        </p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="group p-10 bg-gray-50 border border-gray-200 rounded-2xl shadow-sm 
+                  hover:shadow-2xl hover:border-purple-400 transition duration-300">
+        <div class="w-16 h-16 mx-auto rounded-xl bg-purple-100 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <i data-lucide="refresh-ccw" class="w-10 h-10 text-purple-600"></i>
+        </div>
+        <h4 class="text-2xl font-semibold text-gray-900 mb-3">Real-Time & Scheduled Scraping</h4>
+        <p class="text-gray-600 leading-relaxed">
+          Automation with cron-based scheduling, hourly scraping, daily sync, or real-time data 
+          streaming using serverless triggers.
+        </p>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="group p-10 bg-gray-50 border border-gray-200 rounded-2xl shadow-sm 
+                  hover:shadow-2xl hover:border-emerald-400 transition duration-300">
+        <div class="w-16 h-16 mx-auto rounded-xl bg-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <i data-lucide="filter" class="w-10 h-10 text-emerald-600"></i>
+        </div>
+        <h4 class="text-2xl font-semibold text-gray-900 mb-3">Data Cleaning & Enrichment</h4>
+        <p class="text-gray-600 leading-relaxed">
+          We remove duplicates, validate fields, normalize content, categorize data, and match 
+          with external sources for enriched insights.
+        </p>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="group p-10 bg-gray-50 border border-gray-200 rounded-2xl shadow-sm 
+                  hover:shadow-2xl hover:border-rose-400 transition duration-300">
+        <div class="w-16 h-16 mx-auto rounded-xl bg-rose-100 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <i data-lucide="lock" class="w-10 h-10 text-rose-600"></i>
+        </div>
+        <h4 class="text-2xl font-semibold text-gray-900 mb-3">Ethical & Secure Scraping</h4>
+        <p class="text-gray-600 leading-relaxed">
+          All scraping follows legal, compliance, and ethical best practices with secured environments, 
+          encrypted pipelines, and zero data leakage.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="py-28 bg-gradient-to-br from-gray-50 via-white to-gray-100 text-center border-y border-gray-200">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+      Web Scraping <span class="text-cyan-600">Pricing Plans</span>
+    </h2>
+    <p class="text-gray-600 max-w-3xl mx-auto mb-20 text-lg">
+      Transparent, scalable and usage-based pricing designed for startups, enterprises and data-driven teams.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- Basic -->
+      <div class="group bg-white border border-gray-200 rounded-2xl p-10 shadow-sm hover:shadow-2xl hover:border-cyan-400 transition">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Starter</h3>
+        <p class="text-gray-600 mb-6">For small-scale projects & occasional scraping.</p>
+        <p class="text-4xl font-extrabold text-gray-900 mb-6">₹2,999 <span class="text-base text-gray-500">/month</span></p>
+
+        <ul class="text-gray-600 text-sm space-y-3">
+          <li>✔ 10,000 pages/month</li>
+          <li>✔ Scheduled scraping</li>
+          <li>✔ CSV / JSON export</li>
+          <li>✔ Basic proxy rotation</li>
+          <li>✔ Email support</li>
+        </ul>
+
+        <a href="/contact/"
+           class="mt-8 inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-full shadow-md hover:shadow-lg transition">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Standard -->
+      <div class="group bg-white border border-cyan-400 rounded-2xl p-10 shadow-xl scale-[1.02]">
+        <h3 class="text-2xl font-bold text-cyan-600 mb-4">Business</h3>
+        <p class="text-gray-600 mb-6">For teams requiring scalable and stable scraping.</p>
+        <p class="text-4xl font-extrabold text-gray-900 mb-6">₹7,999 <span class="text-base text-gray-500">/month</span></p>
+
+        <ul class="text-gray-600 text-sm space-y-3">
+          <li>✔ 50,000 pages/month</li>
+          <li>✔ Full API access</li>
+          <li>✔ Cloud scraping cluster</li>
+          <li>✔ Captcha bypass</li>
+          <li>✔ Priority support</li>
+        </ul>
+
+        <a href="/contact/"
+           class="mt-8 inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-full shadow-md hover:shadow-lg transition">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="group bg-white border border-gray-200 rounded-2xl p-10 shadow-sm hover:shadow-2xl hover:border-indigo-400 transition">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Enterprise</h3>
+        <p class="text-gray-600 mb-6">Customized infrastructure for large-scale scraping.</p>
+
+        <p class="text-4xl font-extrabold text-gray-900 mb-6">Custom</p>
+
+        <ul class="text-gray-600 text-sm space-y-3">
+          <li>✔ Unlimited scraping</li>
+          <li>✔ Dedicated proxy pool</li>
+          <li>✔ Full browser automation</li>
+          <li>✔ On-demand pipelines</li>
+          <li>✔ 24/7 premium support</li>
+        </ul>
+
+        <a href="/contact/"
+           class="mt-8 inline-block bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-3 rounded-full shadow-md hover:shadow-lg transition">
+          Contact Us
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-28 bg-white text-center border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Our <span class="text-cyan-600">Scraping Tech Stack</span></h2>
+    <p class="text-gray-600 max-w-3xl mx-auto mb-16">
+      Powered by battle-tested technologies optimized for speed, anti-blocking, and high-volume scraping.
+    </p>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+      <div class="p-8 bg-gray-50 border rounded-2xl text-center shadow-sm hover:shadow-lg transition">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">Python Scrapy</h4>
+        <p class="text-gray-600 text-sm">High-performance spider engine for structured crawling.</p>
+      </div>
+
+      <div class="p-8 bg-gray-50 border rounded-2xl text-center shadow-sm hover:shadow-lg transition">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">Playwright / Puppeteer</h4>
+        <p class="text-gray-600 text-sm">Browser automation for Javascript-heavy websites.</p>
+      </div>
+
+      <div class="p-8 bg-gray-50 border rounded-2xl text-center shadow-sm hover:shadow-lg transition">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">Rotating Proxy Network</h4>
+        <p class="text-gray-600 text-sm">Geo-based proxies ensuring zero blocking & throttle control.</p>
+      </div>
+
+      <div class="p-8 bg-gray-50 border rounded-2xl text-center shadow-sm hover:shadow-lg transition">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">AI-Based Parsing</h4>
+        <p class="text-gray-600 text-sm">Smart selectors + pattern recognition for dynamic layouts.</p>
+      </div>
+
+      <div class="p-8 bg-gray-50 border rounded-2xl text-center shadow-sm hover:shadow-lg transition">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">IP Rotation API</h4>
+        <p class="text-gray-600 text-sm">Automatic proxy cycling for error-free scraping.</p>
+      </div>
+
+      <div class="p-8 bg-gray-50 border rounded-2xl text-center shadow-sm hover:shadow-lg transition">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">Cloud Pipelines</h4>
+        <p class="text-gray-600 text-sm">Serverless scraping with autoscaling clusters.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="py-28 bg-gradient-to-br from-gray-50 via-white to-gray-100 text-center border-y border-gray-200">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-8">
+      Our <span class="text-cyan-600">Scraping Pipeline</span>
+    </h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-20">
+      A fully automated, fault-tolerant extraction pipeline ensuring accuracy at every stage.
+    </p>
+
+    <div class="space-y-12 relative">
+
+      <div class="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-gray-300"></div>
+
+      <!-- Step 1 -->
+      <div class="flex flex-col items-center">
+        <div class="w-12 h-12 rounded-full bg-cyan-500 text-white flex items-center justify-center text-lg font-bold">1</div>
+        <h4 class="text-xl font-semibold mt-4">URL & Selector Analysis</h4>
+        <p class="text-gray-600 max-w-md text-sm">We analyze website structure, blocks, rate-limits & anti-bot tech.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex flex-col items-center">
+        <div class="w-12 h-12 rounded-full bg-indigo-500 text-white flex items-center justify-center text-lg font-bold">2</div>
+        <h4 class="text-xl font-semibold mt-4">Crawler Engine Setup</h4>
+        <p class="text-gray-600 max-w-md text-sm">Custom spiders built using Scrapy, Playwright, or API interception.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex flex-col items-center">
+        <div class="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center text-lg font-bold">3</div>
+        <h4 class="text-xl font-semibold mt-4">Anti-Block Defense Layer</h4>
+        <p class="text-gray-600 max-w-md text-sm">Proxies, captchas, fingerprinting & delay randomization.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex flex-col items-center">
+        <div class="w-12 h-12 rounded-full bg-purple-500 text-white flex items-center justify-center text-lg font-bold">4</div>
+        <h4 class="text-xl font-semibold mt-4">Data Extraction</h4>
+        <p class="text-gray-600 max-w-md text-sm">Structured extraction using CSS, XPath, regex & AI parsers.</p>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="flex flex-col items-center">
+        <div class="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center text-lg font-bold">5</div>
+        <h4 class="text-xl font-semibold mt-4">Cleaning & Structuring</h4>
+        <p class="text-gray-600 max-w-md text-sm">Deduplication, validation, enrichment & format normalization.</p>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="flex flex-col items-center">
+        <div class="w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center text-lg font-bold">6</div>
+        <h4 class="text-xl font-semibold mt-4">Delivery & Integration</h4>
+        <p class="text-gray-600 max-w-md text-sm">Export to CSV/JSON/XLSX, API integration or direct DB push.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="py-28 bg-white text-center">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Industries We <span class="text-cyan-600">Empower</span></h2>
+    <p class="text-gray-600 max-w-3xl mx-auto mb-16 text-lg">
+      We build scraping solutions tailored for industry-specific insights and competitive advantage.
+    </p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <div class="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-lg transition">E-Commerce Price Monitoring</div>
+      <div class="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-lg transition">Real Estate Listings Extraction</div>
+      <div class="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-lg transition">Job Portals & Hiring Trends</div>
+      <div class="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-lg transition">Travel Fare & Hotel Aggregation</div>
+      <div class="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-lg transition">Investment & Market Analysis</div>
+      <div class="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-lg transition">News & Sentiment Monitoring</div>
+
+    </div>
+  </div>
+</section>
+<section class="py-28 bg-gradient-to-br from-gray-50 via-white to-gray-100 text-center border-y border-gray-200">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Data <span class="text-cyan-600">Transformation</span></h2>
+    <p class="text-gray-600 max-w-3xl mx-auto mb-16 text-lg">
+      Raw messy web data converted into structured business-ready datasets.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <div class="p-8 bg-gray-50 border border-gray-200 rounded-xl shadow-sm">
+        <h4 class="text-xl font-bold mb-4">Before</h4>
+        <pre class="text-left bg-white p-4 rounded-xl text-sm text-gray-700 overflow-auto shadow-inner">
+product-title:   &quot;♨️NEW PRICE DROP!!!🔥 Iphone 14 Pro Max...&quot;
+priceVal:  '₹   1,34,990/-'
+rating: ...????
+        </pre>
+      </div>
+
+      <div class="p-8 bg-white border border-cyan-300 rounded-xl shadow-md">
+        <h4 class="text-xl font-bold mb-4">After (Structured JSON)</h4>
+        <pre class="text-left bg-gray-50 p-4 rounded-xl text-sm text-gray-700 overflow-auto shadow-inner">
+{
+  "product_name": "iPhone 14 Pro Max",
+  "price": 134990,
+  "rating": 4.8,
+  "stock_status": "In Stock",
+  "scraped_at": "2025-02-14"
+}
+        </pre>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Use Cases</h2>
+
+    <div class="grid md:grid-cols-3 gap-12 mt-12">
+
+      <div>
+        <i data-lucide="trending-up" class="w-12 h-12 mx-auto text-cyan-600 mb-4"></i>
+        <h4 class="font-semibold text-xl text-gray-900">Market Research</h4>
+        <p class="text-gray-600 text-sm mt-2">Track trends, pricing patterns & competitors in real time.</p>
+      </div>
+
+      <div>
+        <i data-lucide="shopping-cart" class="w-12 h-12 mx-auto text-blue-600 mb-4"></i>
+        <h4 class="font-semibold text-xl text-gray-900">E-Commerce Monitoring</h4>
+        <p class="text-gray-600 text-sm mt-2">Scan product listings, reviews, inventory & pricing.</p>
+      </div>
+
+      <div>
+        <i data-lucide="newspaper" class="w-12 h-12 mx-auto text-indigo-600 mb-4"></i>
+        <h4 class="font-semibold text-xl text-gray-900">News & Social Insights</h4>
+        <p class="text-gray-600 text-sm mt-2">Extract trending articles, sentiment & public behaviour.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<section class="py-24 bg-white text-center border-b border-gray-200">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-10">
+      Frequently Asked <span class="text-cyan-600">Questions</span>
+    </h2>
+
+    <div class="text-left space-y-6">
+
+      <!-- FAQ Item -->
+      <div class="border border-gray-200 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left faq-btn">
+          <span class="text-lg font-semibold text-gray-900">Is web scraping legal?</span>
+
+          <!-- Chevron Icon (SVG) -->
+          <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-300"
+               fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+
+        </button>
+
+        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 text-gray-600 text-sm px-5">
+          <p class="py-3">We follow ethical & compliant scraping practices respecting robots.txt, public data access, and regional regulations.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item -->
+      <div class="border border-gray-200 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left faq-btn">
+          <span class="text-lg font-semibold text-gray-900">Can you scrape websites with captchas?</span>
+
+          <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-300"
+               fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+
+        </button>
+
+        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 text-gray-600 text-sm px-5">
+          <p class="py-3">Yes — we use AI captcha solvers, headless browsers, distributed proxy rotation, and smart retries.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item -->
+      <div class="border border-gray-200 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left faq-btn">
+          <span class="text-lg font-semibold text-gray-900">Do you provide API integration?</span>
+
+          <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-300"
+               fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+
+        </button>
+
+        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 text-gray-600 text-sm px-5">
+          <p class="py-3">Yes — data can be synced to your CRM, ERP, database, or custom API endpoint.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item -->
+      <div class="border border-gray-200 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left faq-btn">
+          <span class="text-lg font-semibold text-gray-900">How often can the scraping run?</span>
+
+          <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-300"
+               fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+
+        </button>
+
+        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 text-gray-600 text-sm px-5">
+          <p class="py-3">You can scrape real-time, hourly, daily, weekly — fully flexible.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-white text-center">
+  <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Need Custom Scraping?</h2>
+  <p class="text-gray-600 mb-6">We can build a fully automated scraper tailored to your business.</p>
+  <a href="/contact/" class="btn-primary text-lg">Talk to Us</a>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    lucide.createIcons();
+
+    const toggle = document.getElementById("menu-toggle");
+    const closeBtn = document.getElementById("close-menu");
+    const menu = document.getElementById("mobile-menu");
+    const overlay = document.getElementById("mobile-menu-overlay");
+
+    toggle.addEventListener("click", () => {
+      menu.classList.remove("translate-x-full");
+      overlay.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      menu.classList.add("translate-x-full");
+      overlay.classList.add("hidden");
+    });
+
+    overlay.addEventListener("click", () => {
+      menu.classList.add("translate-x-full");
+      overlay.classList.add("hidden");
+    });
+  });
+</script>
+<script>
+// FAQ Accordion Script
+document.querySelectorAll('.faq-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const content = btn.nextElementSibling;
+    const chevron = btn.querySelector('.faq-chevron');
+
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      chevron.classList.remove('rotate-180');
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      chevron.classList.add('rotate-180');
+    }
+  });
+});
+</script>
+</body>
+</html>
