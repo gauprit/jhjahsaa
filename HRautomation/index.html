@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Automation | Hyquantix Technologies Pvt. Ltd.</title>
+  <link rel="icon" type="image/png" href="logo2.png" />
+
+  <!-- Tailwind + Fonts + Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+
+
+  <style>
+    body { font-family:'Manrope',sans-serif; background:#f9fafb; color:#1f2937; }
+    .nav-item { color:#374151; transition:.3s; }
+    .nav-item:hover { color:#0ea5e9; }
+    .btn-primary { background:linear-gradient(90deg,#06b6d4,#6366f1); color:white; font-weight:600; padding:0.7rem 1.6rem; border-radius:9999px; transition:.3s; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(14,165,233,0.3); }
+    .glass {
+      background:white;
+      border:1px solid #e5e7eb;
+      border-radius:1rem;
+      box-shadow:0 4px 18px rgba(0,0,0,0.05);
+      transition:.3s;
+    }
+    .glass:hover { box-shadow:0 10px 32px rgba(0,0,0,0.08); transform:translateY(-3px); }
+  </style>
+  <style>
+  .animate-spin-slow { animation: spin 18s linear infinite; }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .bubble { 
+    transition: transform .25s cubic-bezier(.22,.61,.36,1), 
+                box-shadow .25s ease;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/90 border-b border-gray-200 shadow-sm">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <div class="flex items-center space-x-3">
+      <a href="/">
+        <img src="logo.png" alt="Hyquantix Logo" class="w-32 md:w-40 h-auto object-contain">
+      </a>
+      <p class="hidden sm:block text-sm text-gray-500">Intelligent · Reliable · Secure</p>
+    </div>
+
+    <nav class="hidden md:flex space-x-8 font-medium">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/about/" class="nav-item">About</a>
+      <a href="/services/" class="nav-item">Services</a>
+      <a href="/automation.html" class="nav-item">Automation</a>
+      <a href="/hrsolution.html" class="nav-item text-cyan-600 font-semibold">HR Solutions</a>
+      <a href="/contact/" class="nav-item">Contact</a>
+    </nav>
+
+    <button id="menu-toggle" class="md:hidden text-gray-700">
+      <i data-lucide="menu" class="w-8 h-8"></i>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
+<div id="mobile-menu"
+     class="fixed top-0 right-0 h-full w-72 bg-white shadow-2xl transform translate-x-full transition-transform z-50 flex flex-col p-8 space-y-6">
+  <button id="close-menu" class="self-end text-gray-600 hover:text-cyan-600">
+    <i data-lucide="x" class="w-8 h-8"></i>
+  </button>
+
+  <nav class="flex flex-col space-y-5 text-lg font-medium">
+    <a href="/" class="nav-item">Home</a>
+    <a href="/about/" class="nav-item">About</a>
+    <a href="/services/" class="nav-item">Services</a>
+    <a href="/automation.html" class="nav-item">Automation</a>
+    <a href="/hrsolution.html" class="nav-item text-cyan-600 font-semibold">HR Solutions</a>
+    <a href="/contact/" class="nav-item">Contact</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="pt-40 pb-24 bg-gradient-to-b from-white to-gray-50 text-center">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <h1 class="text-5xl font-extrabold text-gray-900">
+      Modern <span class="text-cyan-600">HR Automation</span>
+    </h1>
+
+    <p class="text-lg text-gray-600 mt-4">
+      Automate hiring, onboarding, payroll, attendance, compliance & employee lifecycle management — with precision and intelligence.
+    </p>
+
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="/contact/" class="btn-primary">Request Demo</a>
+      <a href="#" class="px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-700 hover:shadow">Download HR Brochure</a>
+    </div>
+  </div>
+</section>
+
+<!-- HR USE CASES — ADVANCED INTERACTIVE SECTION -->
+<section class="py-28 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+
+  <!-- Background Glow -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,143,255,0.06),transparent_70%)] pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative">
+
+    <!-- Title -->
+    <div class="text-center mb-20">
+      <h2 class="text-4xl font-extrabold text-gray-900">HR Automation Suite</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mt-3">
+        A dynamic visualization of how automation transforms your HR ecosystem end-to-end.
+      </p>
+    </div>
+
+    <!-- CENTER BRAIN -->
+    <div class="relative mx-auto w-[260px] h-[260px] flex items-center justify-center mb-24">
+
+      <!-- rotating ring -->
+      <div class="absolute inset-0 rounded-full border border-cyan-400/20 animate-spin-slow"></div>
+
+      <!-- inner glow -->
+      <div class="absolute w-40 h-40 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 blur-xl opacity-30"></div>
+
+      <!-- core -->
+      <div class="relative z-10 w-28 h-28 rounded-2xl bg-white shadow-xl flex flex-col items-center justify-center text-center border border-gray-200">
+        <svg class="w-14 h-14 text-cyan-600" viewBox="0 0 48 48" fill="none">
+  <circle cx="24" cy="10" r="6" stroke="currentColor" stroke-width="2"/>
+  <path d="M12 42c0-8 6-12 12-12s12 4 12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="8" cy="22" r="4" stroke="currentColor" stroke-width="2"/>
+  <path d="M4 42c0-6 3-10 8-11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="40" cy="22" r="4" stroke="currentColor" stroke-width="2"/>
+  <path d="M44 42c0-6-3-10-8-11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>
+
+
+        <span class="font-semibold text-gray-800 text-sm">HR Automation<br></span>
+      </div>
+
+    </div>
+
+    <!-- FLOATING BUBBLES GRID -->
+    <div class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12">
+
+      <!-- Bubble Component -->
+      <div class="bubble mx-auto w-[220px] h-[220px] rounded-full bg-white shadow-xl border border-gray-200 flex items-center justify-center text-center p-6 hover:shadow-2xl transition">
+        <div>
+          <i data-lucide="user-check" class="w-10 h-10 text-cyan-600 mx-auto mb-3"></i>
+          <h4 class="font-semibold text-gray-900 text-lg">Employee Onboarding</h4>
+          <p class="text-gray-600 text-xs mt-2">ID verification, document collection, auto-account creation.</p>
+        </div>
+      </div>
+
+      <div class="bubble mx-auto w-[220px] h-[220px] rounded-full bg-white shadow-xl border border-gray-200 flex items-center justify-center text-center p-6">
+        <div>
+          <i data-lucide="badge-check" class="w-10 h-10 text-blue-600 mx-auto mb-3"></i>
+          <h4 class="font-semibold text-gray-900 text-lg">Attendance & Shift</h4>
+          <p class="text-gray-600 text-xs mt-2">Biometric sync, auto shift mapping, leave workflow.</p>
+        </div>
+      </div>
+
+      <div class="bubble mx-auto w-[220px] h-[220px] rounded-full bg-white shadow-xl border border-gray-200 flex items-center justify-center text-center p-6">
+        <div>
+          <i data-lucide="file-text" class="w-10 h-10 text-indigo-600 mx-auto mb-3"></i>
+          <h4 class="font-semibold text-gray-900 text-lg">Payroll Processing</h4>
+          <p class="text-gray-600 text-xs mt-2">Auto salary runs, statutory compliance, error-free payouts.</p>
+        </div>
+      </div>
+
+      <div class="bubble mx-auto w-[220px] h-[220px] rounded-full bg-white shadow-xl border border-gray-200 flex items-center justify-center text-center p-6">
+        <div>
+          <i data-lucide="search-check" class="w-10 h-10 text-green-600 mx-auto mb-3"></i>
+          <h4 class="font-semibold text-gray-900 text-lg">Performance Tracking</h4>
+          <p class="text-gray-600 text-xs mt-2">OKR automation, appraisal cycles, feedback scoring.</p>
+        </div>
+      </div>
+
+      <div class="bubble mx-auto w-[220px] h-[220px] rounded-full bg-white shadow-xl border border-gray-200 flex items-center justify-center text-center p-6">
+        <div>
+          <i data-lucide="layers" class="w-10 h-10 text-purple-600 mx-auto mb-3"></i>
+          <h4 class="font-semibold text-gray-900 text-lg">HR Document Automation</h4>
+          <p class="text-gray-600 text-xs mt-2">Auto-generate letters, offers, policies, contracts.</p>
+        </div>
+      </div>
+
+      <div class="bubble mx-auto w-[220px] h-[220px] rounded-full bg-white shadow-xl border border-gray-200 flex items-center justify-center text-center p-6">
+        <div>
+          <i data-lucide="message-square" class="w-10 h-10 text-orange-600 mx-auto mb-3"></i>
+          <h4 class="font-semibold text-gray-900 text-lg">Employee Queries</h4>
+          <p class="text-gray-600 text-xs mt-2">Chat-based HR workflows – automated answers & routing.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="py-24 bg-white border-y border-gray-100">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold text-gray-900">HR Automation Workflow</h2>
+      <p class="text-gray-600 mt-3 max-w-2xl mx-auto">
+        A streamlined, enterprise-ready HR automation lifecycle built for efficiency,
+        compliance, and workforce excellence.
+      </p>
+    </div>
+
+
+    <!-- Corporate Timeline -->
+    <div class="relative">
+
+      <!-- Vertical line (desktop) -->
+      <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-200"></div>
+
+      <div class="space-y-24">
+
+        <!-- Step 1 -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="md:pr-10 text-right md:text-right">
+            <h3 class="text-xl font-semibold text-gray-900">1. HR Assessment</h3>
+            <p class="text-gray-600 mt-2">
+              Deep-dive analysis of HR operations, workflows, and automation opportunities.
+            </p>
+          </div>
+          <div class="flex justify-center md:justify-start">
+            <img src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png"
+                 class="w-20 h-20 opacity-90" alt="Assessment">
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="flex justify-center md:justify-end md:order-2">
+            <img src="https://cdn-icons-png.flaticon.com/512/9068/9068163.png"
+     class="w-20 h-20 opacity-90" alt="Design Workflow">
+
+          </div>
+          <div class="md:pl-10">
+            <h3 class="text-xl font-semibold text-gray-900">2. Process Design</h3>
+            <p class="text-gray-600 mt-2">
+              Defining rules, workflows, data structures, and integration architecture.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="md:pr-10 text-right">
+            <h3 class="text-xl font-semibold text-gray-900">3. Automation Build</h3>
+            <p class="text-gray-600 mt-2">
+              Building RPA bots, API-based flows, and AI-driven decision engines.
+            </p>
+          </div>
+          <div class="flex justify-center md:justify-start">
+            <img src="https://cdn-icons-png.flaticon.com/512/11527/11527927.png"
+     class="w-20 h-20 opacity-90" alt="HR Workflow Automation">
+
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="flex justify-center md:justify-end md:order-2">
+            <img src="https://cdn-icons-png.flaticon.com/512/4149/4149678.png"
+     class="w-20 h-20 opacity-90" alt="Monitoring Analytics">
+
+
+          </div>
+          <div class="md:pl-10">
+            <h3 class="text-xl font-semibold text-gray-900">4. Monitoring & Insights</h3>
+            <p class="text-gray-600 mt-2">
+              Dashboards, logs, alerts and SLA-based monitoring for governance & reliability.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- CTA -->
+<section class="py-24 text-center bg-gradient-to-br from-white to-gray-100">
+  <h3 class="text-3xl font-extrabold text-gray-900 mb-4">Ready to Transform Your HR?</h3>
+  <p class="text-gray-600 max-w-lg mx-auto mb-6">Let our team design a fully automated and intelligent HR workflow for you.</p>
+
+  <div class="flex justify-center gap-4">
+    <a href="/contact/" class="btn-primary">Talk to HR Automation Expert</a>
+    <a href="#" class="px-5 py-2 rounded-full border border-gray-300 bg-white hover:shadow">Download Plan</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-50 border-t border-gray-200 py-12 text-gray-600 text-sm">
+  <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+
+    <div>
+      <h4 class="text-base font-semibold text-gray-900 mb-3">Hyquantix Technologies</h4>
+      <p>Intelligent, reliable & secure digital solutions.</p>
+      <p class="text-xs mt-2 text-gray-500">GautamBudh Nagar, India</p>
+    </div>
+
+    <div>
+      <h5 class="text-sm font-semibold text-gray-900 mb-3">Company</h5>
+      <ul class="space-y-1">
+        <li><a href="/about/" class="hover:text-cyan-600">About</a></li>
+        <li><a href="/career/" class="hover:text-cyan-600">Careers</a></li>
+        <li><a href="/services/" class="hover:text-cyan-600">Services</a></li>
+        <li><a href="/contact/" class="hover:text-cyan-600">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5 class="text-sm font-semibold text-gray-900 mb-3">Resources</h5>
+      <ul class="space-y-1">
+        <li><a href="/privacy/" class="hover:text-cyan-600">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-cyan-600">Terms</a></li>
+        <li><a href="#" class="hover:text-cyan-600">Support</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5 class="text-sm font-semibold text-gray-900 mb-3">Contact</h5>
+      <p>📧 support@hyquantix.com</p>
+      <p>📞 +91-8700790835</p>
+      <div class="flex justify-center md:justify-start space-x-4 mt-3 text-lg">
+        <i class="fab fa-linkedin hover:text-cyan-600 cursor-pointer"></i>
+        <i class="fab fa-twitter hover:text-cyan-600 cursor-pointer"></i>
+        <i class="fab fa-github hover:text-cyan-600 cursor-pointer"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="border-t border-gray-200 mt-10 pt-4 text-center text-xs text-gray-400">
+    © 2025 Hyquantix Technologies Pvt. Ltd. — All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  if(window.lucide) lucide.createIcons();
+
+  const toggle = document.getElementById("menu-toggle");
+  const closeBtn = document.getElementById("close-menu");
+  const menu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("mobile-menu-overlay");
+
+  const openMenu = () => {
+    menu.classList.remove("translate-x-full");
+    overlay.classList.remove("hidden");
+    document.body.style.overflow="hidden";
+  };
+
+  const closeMenu = () => {
+    menu.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+    document.body.style.overflow="auto";
+  };
+
+  toggle.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+</script>
+<script>
+// Magnetic hover effect
+document.querySelectorAll('.bubble').forEach(bubble => {
+  const strength = 30;
+
+  bubble.addEventListener("mousemove", (e) => {
+    const rect = bubble.getBoundingClientRect();
+    const x = e.clientX - (rect.left + rect.width/2);
+    const y = e.clientY - (rect.top + rect.height/2);
+
+    bubble.style.transform = `translate(${x/strength}px, ${y/strength}px) scale(1.07)`;
+    bubble.style.boxShadow = "0 20px 40px rgba(0,0,0,0.12)";
+  });
+
+  bubble.addEventListener("mouseleave", () => {
+    bubble.style.transform = "translate(0,0) scale(1)";
+    bubble.style.boxShadow = "0 10px 20px rgba(0,0,0,0.08)";
+  });
+});
+</script>
+<script>
+gsap.from("section img", {
+  opacity: 0,
+  y: 20,
+  duration: 0.7,
+  stagger: 0.2,
+  ease: "power2.out"
+});
+
+gsap.from("section h3", {
+  opacity: 0,
+  y: 20,
+  duration: 0.5,
+  stagger: 0.15,
+  ease: "power2.out"
+});
+</script>
+
+</body>
+</html>
