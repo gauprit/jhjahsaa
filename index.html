@@ -398,15 +398,18 @@ animation: gradientFlux 5.8s ease-in-out infinite;
   <a href="/">
     <img src="logo1.png" class="w-32 md:w-40">
   </a>
-   <p class="block text-xs md:text-sm text-cyan-400 tracking-wide text-center md:text-left">
+ <p class="block text-xs md:text-sm text-cyan-400 tracking-wide text-center md:text-left">
   Intelligent · Reliable · Secure
 </p>
+
 </div>
 
     <nav class="hidden md:flex space-x-8 font-medium">
       <a href="/" class="nav-item text-cyan-400 font-semibold">Home</a>
       <a href="/about/" class="nav-item">About</a>
-      <button id="servicesToggle" class="nav-item flex items-center gap-1 cursor-pointer">
+      <div class="relative inline-block text-left">
+  <!-- Main Trigger -->
+  <button id="servicesToggle" class="nav-item flex items-center gap-1 cursor-pointer">
     What We Do
     <svg id="servicesArrow" class="w-4 h-4 transition-transform duration-300 text-gray-300"
       fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -549,14 +552,17 @@ animation: gradientFlux 5.8s ease-in-out infinite;
 
 <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 bg-[#0b0f19] shadow-2xl translate-x-full z-50 flex flex-col p-8 space-y-6">
   
-
+  <!-- Close Button -->
   <button id="close-menu" class="self-end text-3xl text-white transition hover:text-cyan-400">
     <i class="fa-solid fa-xmark"></i>
   </button>
 
   <nav class="flex flex-col space-y-5 text-lg font-medium">
+
     <a href="/" class="nav-item text-cyan-400 font-semibold">Home</a>
     <a href="/about/" class="nav-item text-white">About</a>
+
+    <!-- SERVICES ACCORDION (Mobile) -->
     <div class="w-full">
       <button id="mobile-services-toggle"
         class="w-full flex justify-between items-center text-white">
@@ -659,11 +665,13 @@ animation: gradientFlux 5.8s ease-in-out infinite;
 
       </div>
     </div>
+
     <a href="/career/" class="nav-item text-white">Careers</a>
     <a href="/contact/" class="nav-item text-white">Contact</a>
     <a href="/impact/" class="btn-primary w-full text-center py-3">Our Impact</a>
   </nav>
 </div>
+
 
   <section id="home" class="relative h-screen w-full overflow-hidden text-white flex flex-col items-center justify-center
 ">
@@ -1737,6 +1745,7 @@ AOS.init({
 </script>
 </body>
 </html>
+
 
 
 
