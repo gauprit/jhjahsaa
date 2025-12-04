@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Block sensitive or unnecessary system folders (optional but recommended)
+Disallow: /node_modules/
+Disallow: /temp/
+Disallow: /drafts/
+Disallow: /private/
+
+# Primary Sitemap
+Sitemap: https://www.hyquantix.com/sitemap.xml
