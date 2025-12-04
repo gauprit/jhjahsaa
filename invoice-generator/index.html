@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hyquantix — Invoice Generator (Advanced)</title>
+  <link rel="icon" href="logo1.png" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/a2e0e6b6b4.js" crossorigin="anonymous"></script>
+  <!-- html2pdf for PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+  <style>
+    :root{
+      --bg: #0b0f19; --card:#071022; --muted: #9aa6b2; --accent: #06b6d4;
+    }
+    [data-theme="light"]{ --bg:#f8fafc; --card:#ffffff; --muted:#475569; --accent:#0ea5e9; color: #0b1220 }
+    body{ background: linear-gradient(180deg,#05060a 0%, var(--bg) 100%); font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    .glass { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(6px); }
+    .fadeSlide{ transition: all .26s ease; }
+    /* print */
+
+  /* PRINT MODE — FORCE DARK TEXT + WHITE BACKGROUND */
+ /* PRINT MODE — CLEAN WHITE INVOICE WITH BLACK TEXT */
+@media print {
+
+  body, #invoiceCard {
+    background: #ffffff !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Make ALL TEXT black */
+  #invoiceCard * {
+    color: #000 !important;
+    border-color: #00000030 !important;
+  }
+
+  /* Make ALL INPUTS white + black text */
+  input, textarea, select {
+    background: #ffffff !important;
+    color: #000 !important;
+    border-color: #00000030 !important;
+  }
+
+  /* Override ALL Tailwind dark backgrounds */
+  [class*="bg-"],
+  .bg-card,
+  .glass,
+  .bg-white\/10,
+  .bg-white\/20,
+  .bg-white\/5,
+  .bg-white\/8,
+  .bg-white\/3 {
+    background: #ffffff !important;
+  }
+
+  /* Remove drop shadows */
+  .shadow, .shadow-md, .shadow-lg {
+    box-shadow: none !important;
+  }
+
+  /* Hide buttons, controls, menus */
+  .no-print,
+  header,
+  #toggleTheme,
+  #saveBtn,
+  #savedListBtn,
+  #downloadPdf,
+  #printBtn,
+  #duplicateBtn,
+  #clearBtn,
+  #themeMobileToggle {
+    display: none !important;
+  }
+
+}
+</style>
+
+</head>
+<body data-theme="dark" class="text-gray-100">
+
+  <div class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="w-full py-4 px-4 sm:px-6 lg:px-8 flex items-center justify-between bg-transparent">
+      <div class="flex items-center gap-4">
+        <img id="brandLogoSmall" src="logo1.png" alt="logo" class="w-12 h-12 rounded-md shadow-md object-cover bg-white/5">
+        <div>
+          <div class="text-lg font-bold">Hyquantix Invoice Maker</div>
+          <div class="text-xs text-gray-400">Advanced — mobile-first, exportable & savable</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="toggleTheme" class="no-print btn inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 hover:bg-white/8 transition">
+          <i class="fa-solid fa-moon"></i> <span class="hidden sm:inline">Theme</span>
+        </button>
+        <button id="saveBtn" class="no-print btn inline-flex items-center gap-2 px-3 py-2 rounded-md bg-emerald-500 text-white hover:bg-emerald-600">Save</button>
+        <div class="relative inline-block">
+          <button id="savedListBtn" class="no-print inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20">Saved</button>
+          <div id="savedList" class="absolute right-0 mt-2 w-64 bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 rounded-md shadow-lg p-2 hidden glass z-50"></div>
+        </div>
+        <button id="downloadPdf" class="no-print inline-flex items-center gap-2 px-3 py-2 rounded-md bg-blue-600 text-white">Export PDF</button>
+        <button id="printBtn" class="no-print inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20">Print</button>
+      </div>
+    </header>
+
+    <main class="flex-1 container mx-auto p-4 sm:p-6 lg:p-10">
+
+      <!-- Heading -->
+      <div class="text-center mb-8">
+        <h1 class="text-2xl sm:text-3xl font-extrabold">Intelligent Solutions We Deliver</h1>
+        <p class="text-sm text-gray-400 max-w-2xl mx-auto mt-2">Create professional invoices fast. Mobile-friendly, branded, and export-ready.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- LEFT: Controls -->
+        <section class="lg:col-span-1 glass p-4 rounded-xl shadow-md space-y-4">
+
+          <div>
+            <label class="block text-xs text-gray-300">Company Logo</label>
+            <div class="mt-2 flex items-center gap-3">
+              <input id="logoInput" type="file" accept="image/*" class="text-sm text-gray-300" />
+              <img id="logoPreview" src="logo1.png" alt="logo" class="w-16 h-16 rounded-md object-cover border border-white/6" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-gray-300">Invoice #</label>
+            <div class="mt-2 flex gap-2">
+              <input id="invoiceNo" class="w-full px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20" />
+              <button id="genNo" class="px-3 py-2 rounded-md bg-white/8">Auto</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-gray-300">Date</label>
+            <input id="invoiceDate" type="date" class="w-full mt-2 px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-xs text-gray-300">Currency</label>
+              <select id="currency" class="w-full mt-2 px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20">
+                <option value="INR">₹ INR</option>
+                <option value="USD">$ USD</option>
+                <option value="EUR">€ EUR</option>
+                <option value="GBP">£ GBP</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs text-gray-300">Tax (%)</label>
+              <input id="tax" type="number" min="0" value="18" class="w-full mt-2 px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-gray-300">Discount (%)</label>
+            <input id="discount" type="number" min="0" value="0" class="w-full mt-2 px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20" />
+          </div>
+
+          <div class="flex gap-2">
+            <button id="duplicateBtn" class="flex-1 px-3 py-2 rounded-md bg-violet-600 text-white">Duplicate</button>
+            <button id="clearBtn" class="flex-1 px-3 py-2 rounded-md bg-red-600 text-white">Clear</button>
+          </div>
+
+        </section>
+
+        <!-- MIDDLE + RIGHT: Invoice Editor & Preview -->
+        <section class="lg:col-span-2 space-y-6">
+
+          <!-- Invoice form / preview container that will be exported to PDF -->
+          <div id="invoiceCard" class="bg-card p-6 rounded-xl shadow-lg transition-transform transform hover:scale-[1.002]">
+
+            <!-- Header row -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div class="flex items-center gap-4">
+                <img id="logoMain" src="logo1.png" alt="logo" class="w-20 h-20 rounded-md object-cover border border-white/6" />
+                <div>
+                  <input id="companyName" 
+       class="font-semibold text-lg bg-white/10 text-gray-100 border border-white/20 px-2 py-1 rounded w-full"
+       placeholder="Your Company Name" />
+
+<textarea id="companyAddr" 
+          class="text-sm bg-white/10 text-gray-100 border border-white/20 px-2 py-1 rounded w-full mt-1"
+          rows="2"
+          placeholder="Your company address"></textarea>
+
+                </div>
+              </div>
+
+              <div class="text-right">
+                <div class="text-sm text-gray-400">Invoice</div>
+                <div id="previewInvoiceNo" class="font-semibold text-lg">#INV-0001</div>
+                <div id="previewDate" class="text-sm text-gray-400">Date</div>
+              </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <div class="text-xs text-gray-400">Bill To</div>
+                <div contenteditable id="clientName" class="font-semibold text-base">Client Name</div>
+                <div contenteditable id="clientAddr" class="text-sm text-gray-400">Client address, company, city, pincode</div>
+              </div>
+
+              <div>
+                <div class="text-xs text-gray-400">Payment Details</div>
+                <div class="text-sm">
+  Bank: <input id="bank" 
+               class="bg-white/10 text-gray-100 border border-white/20 px-2 py-1 rounded w-40"
+               placeholder="Bank name" />
+</div>
+
+<div class="text-sm mt-1">
+  UPI / Acc: <input id="acc" 
+                    class="bg-white/10 text-gray-100 border border-white/20 px-2 py-1 rounded w-40"
+                    placeholder="UPI or Account No" />
+</div>
+
+              </div>
+            </div>
+
+            <!-- Items table -->
+            <div class="mt-6 overflow-x-auto">
+              <table class="w-full table-auto text-left">
+                <thead>
+                  <tr class="text-xs text-gray-400 border-b border-white/6">
+                    <th class="py-2">Item</th>
+                    <th class="py-2 w-24">Qty</th>
+                    <th class="py-2 w-28">Rate</th>
+                    <th class="py-2 w-28">Amount</th>
+                    <th class="py-2 w-12"> </th>
+                  </tr>
+                </thead>
+                <tbody id="itemsBody">
+                  <!-- rows injected -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between gap-4">
+              <button id="addRow" class="no-print px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20">+ Add Item</button>
+
+              <div class="w-full sm:w-1/3 bg-white/3 p-3 rounded-md text-right">
+                <div class="flex justify-between text-sm text-gray-300"><span>Subtotal</span><span id="subtotal">0</span></div>
+                <div class="flex justify-between text-sm text-gray-300"><span>Discount</span><span id="discountAmt">0</span></div>
+                <div class="flex justify-between text-sm text-gray-300"><span>Tax</span><span id="taxAmt">0</span></div>
+                <div class="flex justify-between font-semibold text-lg mt-2"><span>Total</span><span id="totalAmt">0</span></div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <div contenteditable id="notes" class="text-sm text-gray-400">Notes: Thank you for your business.</div>
+            </div>
+
+          </div>
+
+          <!-- Actions / small preview controls -->
+          <div class="flex flex-col sm:flex-row gap-3 justify-between items-center">
+            <div class="flex gap-2">
+              <button id="previewBtn" class="px-4 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20">Preview</button>
+              <button id="themeMobileToggle" class="px-4 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 no-print">Dark/Light</button>
+            </div>
+            <div class="text-sm text-gray-400">Autosave to localStorage — <span id="saveStatus">idle</span></div>
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+    <footer class="py-6 text-center text-sm text-gray-500">© 2025 Hyquantix Technologies Pvt. Ltd.</footer>
+  </div>
+
+
+<script>
+// Advanced Invoice Generator JS
+(function(){
+  // Elements
+  const itemsBody = document.getElementById('itemsBody');
+  const addRow = document.getElementById('addRow');
+  const subtotalEl = document.getElementById('subtotal');
+  const taxEl = document.getElementById('tax');
+  const taxAmtEl = document.getElementById('taxAmt');
+  const discountEl = document.getElementById('discount');
+  const discountAmtEl = document.getElementById('discountAmt');
+  const totalEl = document.getElementById('totalAmt');
+  const currencyEl = document.getElementById('currency');
+  const invoiceNo = document.getElementById('invoiceNo');
+  const genNo = document.getElementById('genNo');
+  const previewInvoiceNo = document.getElementById('previewInvoiceNo');
+  const invoiceDate = document.getElementById('invoiceDate');
+  const previewDate = document.getElementById('previewDate');
+  const logoInput = document.getElementById('logoInput');
+  const logoPreview = document.getElementById('logoPreview');
+  const logoMain = document.getElementById('logoMain');
+  const saveBtn = document.getElementById('saveBtn');
+  const savedListBtn = document.getElementById('savedListBtn');
+  const savedList = document.getElementById('savedList');
+  const saveStatus = document.getElementById('saveStatus');
+  const downloadPdf = document.getElementById('downloadPdf');
+  const printBtn = document.getElementById('printBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const duplicateBtn = document.getElementById('duplicateBtn');
+
+  const ITEMS_KEY = 'hyq_invoices_v1';
+
+  // helpers
+  function money(val){
+    const symbol = currencyEl.value === 'INR' ? '₹' : currencyEl.value === 'USD' ? '$' : currencyEl.value === 'EUR' ? '€' : '£';
+    return symbol + ' ' + Number(val).toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+  }
+
+  function createRow(item={desc:'Service', qty:1, rate:0}){
+    const tr = document.createElement('tr');
+    tr.className = 'align-top';
+    tr.innerHTML = `
+      <td class="py-3 pr-4"><div contenteditable class="desc text-sm" style="min-width:120px">${item.desc}</div></td>
+      <td class="py-3"><input type="number" class="qty w-full px-2 py-1 rounded bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 text-sm" value="${item.qty}" min="0" /></td>
+      <td class="py-3"><input type="number" class="rate w-full px-2 py-1 rounded bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 text-sm" value="${item.rate}" min="0" step="0.01" /></td>
+      <td class="py-3"><div class="amount font-medium text-sm">${money(item.qty*item.rate)}</div></td>
+      <td class="py-3"><button class="remove px-2 py-1 rounded bg-red-600 text-white text-xs">x</button></td>
+    `;
+    // events
+    tr.querySelector('.qty').addEventListener('input', recalc);
+    tr.querySelector('.rate').addEventListener('input', recalc);
+    tr.querySelector('.desc').addEventListener('input', recalc);
+    tr.querySelector('.remove').addEventListener('click', ()=>{ tr.remove(); recalc(); });
+    itemsBody.appendChild(tr);
+    recalc();
+  }
+
+  function recalc(){
+    const rows = [...itemsBody.querySelectorAll('tr')];
+    let sub = 0;
+    rows.forEach(r=>{
+      const qty = parseFloat(r.querySelector('.qty').value) || 0;
+      const rate = parseFloat(r.querySelector('.rate').value) || 0;
+      const amt = qty * rate;
+      r.querySelector('.amount').textContent = money(amt);
+      sub += amt;
+    });
+    subtotalEl.textContent = money(sub);
+
+    const discPerc = parseFloat(discountEl.value) || 0;
+    const discAmt = sub * (discPerc/100);
+    discountAmtEl.textContent = money(discAmt);
+
+    const taxPerc = parseFloat(taxEl.value) || 0;
+    const taxAmt = (sub - discAmt) * (taxPerc/100);
+    taxAmtEl.textContent = money(taxAmt);
+
+    const total = sub - discAmt + taxAmt;
+    totalEl.textContent = money(total);
+
+    // update preview invoice no and date
+    previewInvoiceNo.textContent = invoiceNo.value ? ('#' + invoiceNo.value) : '#INV-0001';
+    previewDate.textContent = invoiceDate.value ? invoiceDate.value : (new Date()).toLocaleDateString();
+
+    // autosave small
+    saveStatus.textContent = 'saved (local)';
+  }
+
+  // initial rows
+  createRow({desc:'Development — Landing Page', qty:1, rate:15000});
+  createRow({desc:'Monthly Maintenance', qty:1, rate:3000});
+
+  addRow.addEventListener('click', ()=> createRow({desc:'New Item', qty:1, rate:0}));
+  taxEl.addEventListener('input', recalc);
+  discountEl.addEventListener('input', recalc);
+  currencyEl.addEventListener('change', recalc);
+
+  genNo.addEventListener('click', ()=>{ invoiceNo.value = 'HYQ' + Date.now().toString().slice(-6); recalc(); });
+  document.getElementById('previewBtn').addEventListener('click', ()=> window.scrollTo({top: document.getElementById('invoiceCard').offsetTop-20, behavior:'smooth'}));
+
+  // logo upload
+  logoInput.addEventListener('change', (e)=>{
+    const f = e.target.files && e.target.files[0];
+    if(!f) return;
+    const url = URL.createObjectURL(f);
+    logoPreview.src = url; logoMain.src = url;
+  });
+
+  // PDF export
+downloadPdf.addEventListener("click", () => {
+  const element = document.getElementById("invoiceCard");
+
+  // Inject CLEAN PDF styling
+  const pdfStyle = document.createElement("style");
+  pdfStyle.id = "pdfCleanStyle";
+  pdfStyle.innerHTML = `
+    /* --- RESET UI TO CLEAN WHITE --- */
+    #invoiceCard, #invoiceCard * {
+      background: #ffffff !important;
+      color: #000000 !important;
+      box-shadow: none !important;
+    }
+
+    /* Remove all Tailwind layers */
+    [class*="bg-"], .glass {
+      background: #ffffff !important;
+    }
+
+    /* --- SECTION SEPARATORS --- */
+    #invoiceCard .section-block {
+      padding: 14px 0;
+      border-bottom: 2px solid #e5e5e5 !important;
+      margin-bottom: 12px;
+    }
+
+    #invoiceCard .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111 !important;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    /* --- TABLE IMPROVEMENTS --- */
+    #invoiceCard table {
+      width: 100%;
+      border-collapse: collapse !important;
+      margin-top: 8px;
+    }
+
+    #invoiceCard th {
+      background: #f7f7f7 !important;
+      border-bottom: 2px solid #d1d1d1 !important;
+      padding: 8px;
+      font-weight: 600;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    #invoiceCard td {
+      border-bottom: 1px solid #e5e5e5 !important;
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    /* Remove borders from inputs */
+    input, textarea {
+      border: none !important;
+    }
+
+    /* --- TOTAL BOX --- */
+    #invoiceCard .total-box {
+      border: 1px solid #dcdcdc !important;
+      padding: 10px;
+      border-radius: 6px;
+      background: #fafafa !important;
+      width: 280px;
+      float: right;
+      margin-top: 10px;
+    }
+
+    #invoiceCard .total-box div {
+      padding: 4px 0;
+      font-size: 13px;
+    }
+
+    #invoiceCard .total-box .grand-total {
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      margin-top: 8px;
+      border-top: 2px solid #000 !important;
+      padding-top: 8px;
+    }
+
+    /* Remove dark-mode borders */
+    [class*="border-"] { border-color: transparent !important; }
+
+  `;
+  document.head.appendChild(pdfStyle);
+
+  // Temporarily disable contenteditable
+  element.querySelectorAll("[contenteditable]").forEach(n => {
+    n.setAttribute("data-editable", "true");
+    n.removeAttribute("contenteditable");
+  });
+
+  // PDF Options
+  const opt = {
+    margin: 0.4,
+    filename: (invoiceNo.value || "invoice") + ".pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "in", format: "a4", orientation: "portrait" }
+  };
+ // Add footer dynamically
+const footer = document.createElement("div");
+footer.id = "pdf-footer";
+footer.style.textAlign = "center";
+footer.style.fontSize = "12px";
+footer.style.marginTop = "40px";
+footer.style.paddingTop = "10px";
+footer.style.borderTop = "1px solid #ccc";
+footer.innerText = "© 2025 Hyquantix Technologies Private Limited";
+
+element.appendChild(footer);
+
+  html2pdf().set(opt).from(element).save().then(() => {
+    // Remove temp PDF styling
+    const s = document.getElementById("pdfCleanStyle");
+    if (s) s.remove();
+
+    // Restore editable fields
+    element.querySelectorAll("[data-editable]").forEach(n => {
+      n.setAttribute("contenteditable", "true");
+      n.removeAttribute("data-editable");
+    });
+  });
+});
+
+
+  // Save / Load to localStorage
+  function getStore(){
+    try{ return JSON.parse(localStorage.getItem(ITEMS_KEY) || '[]') }catch(e){ return [] }
+  }
+  function setStore(v){ localStorage.setItem(ITEMS_KEY, JSON.stringify(v)); }
+
+  saveBtn.addEventListener('click', ()=>{
+    const invoice = captureState();
+    const all = getStore();
+    invoice.id = Date.now();
+    all.unshift(invoice);
+    setStore(all);
+    showSavedList();
+  });
+
+  function captureState(){
+    return {
+      invoiceNo: invoiceNo.value,
+      date: invoiceDate.value,
+      currency: currencyEl.value,
+      tax: taxEl.value,
+      discount: discountEl.value,
+      companyName: document.getElementById('companyName').value,
+        companyAddr: document.getElementById('companyAddr').value,
+      clientName: document.getElementById('clientName').innerText,
+      clientAddr: document.getElementById('clientAddr').innerText,
+      notes: document.getElementById('notes').innerText,
+      bank: document.getElementById('bank').value,
+    acc: document.getElementById('acc').value,
+      items: [...itemsBody.querySelectorAll('tr')].map(r=>({ desc: r.querySelector('.desc').innerText, qty: r.querySelector('.qty').value, rate: r.querySelector('.rate').value })),
+      logo: logoMain.src
+    };
+  }
+
+  function restoreState(obj){
+    invoiceNo.value = obj.invoiceNo || '';
+    invoiceDate.value = obj.date || '';
+    currencyEl.value = obj.currency || 'INR';
+    taxEl.value = obj.tax || 0;
+    discountEl.value = obj.discount || 0;
+    document.getElementById('companyName').innerText = obj.companyName || 'Hyquantix Technologies Pvt. Ltd.';
+    document.getElementById('companyAddr').innerText = obj.companyAddr || '';
+    document.getElementById('clientName').innerText = obj.clientName || 'Client Name';
+    document.getElementById('clientAddr').innerText = obj.clientAddr || '';
+    document.getElementById('notes').innerText = obj.notes || 'Thank you for your business.';
+    document.getElementById('bank').innerText = obj.bank || '';
+    document.getElementById('acc').innerText = obj.acc || '';
+
+    // logo
+    if(obj.logo) { logoMain.src = obj.logo; logoPreview.src = obj.logo; }
+
+    // items
+    itemsBody.innerHTML = '';
+    (obj.items || []).forEach(it=> createRow({desc: it.desc, qty: it.qty, rate: it.rate}));
+    recalc();
+  }
+
+  function showSavedList(){
+    const all = getStore();
+    if(all.length===0){ savedList.innerHTML = '<div class="py-3 text-sm text-gray-400">No saved invoices</div>'; return; }
+    savedList.innerHTML = all.map(it=>{
+      return `<div class="py-2 px-2 rounded hover:bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 cursor-pointer flex justify-between items-center"><div class="text-sm"><div class=\"font-semibold\">${it.invoiceNo||'#' + it.id}</div><div class=\"text-xs text-gray-300\">${it.clientName||''}</div></div><div class=\"flex gap-1\"><button data-id=\"${it.id}\" class=\"loadBtn px-2 py-1 rounded bg-emerald-500 text-xs\">Load</button><button data-id=\"${it.id}\" class=\"delBtn px-2 py-1 rounded bg-red-600 text-xs\">Del</button></div></div>`
+    }).join('');
+
+    // attach events
+    savedList.querySelectorAll('.loadBtn').forEach(b=> b.addEventListener('click', e=>{
+      const id = Number(e.target.getAttribute('data-id'));
+      const found = getStore().find(x=>x.id===id);
+      if(found){ restoreState(found); }
+    }));
+
+    savedList.querySelectorAll('.delBtn').forEach(b=> b.addEventListener('click', e=>{
+      const id = Number(e.target.getAttribute('data-id'));
+      const all = getStore().filter(x=>x.id!==id);
+      setStore(all);
+      showSavedList();
+    }));
+  }
+
+  savedListBtn.addEventListener('click', ()=>{ savedList.classList.toggle('hidden'); showSavedList(); });
+
+  // duplicate: create a copy in store
+  duplicateBtn.addEventListener('click', ()=>{
+    const invoice = captureState(); invoice.id = Date.now();
+    const all = getStore(); all.unshift(invoice); setStore(all); showSavedList();
+  });
+
+  // clear
+  clearBtn.addEventListener('click', ()=>{
+    if(!confirm('Clear the current invoice?')) return; 
+    invoiceNo.value=''; invoiceDate.value=''; document.getElementById('companyName').innerText='Hyquantix Technologies Pvt. Ltd.';
+    document.getElementById('companyAddr').innerText=''; document.getElementById('clientName').innerText='Client Name'; document.getElementById('clientAddr').innerText='';
+    document.getElementById('notes').innerText=''; itemsBody.innerHTML=''; createRow({desc:'Service', qty:1, rate:0}); recalc();
+  });
+
+  // autosave every 8s to local draft
+  setInterval(()=>{
+    localStorage.setItem('hyq_invoice_draft', JSON.stringify(captureState()));
+    saveStatus.textContent = 'autosaved';
+  }, 8000);
+
+  // load draft
+  const draft = localStorage.getItem('hyq_invoice_draft'); if(draft) restoreState(JSON.parse(draft));
+
+  // theme toggle
+  const themeBtn = document.getElementById('toggleTheme');
+  themeBtn.addEventListener('click', ()=>{
+    const el = document.body;
+    const theme = el.getAttribute('data-theme') === 'dark' ? 'light':'dark';
+    el.setAttribute('data-theme', theme);
+    el.classList.toggle('text-gray-900');
+    // swap icon
+    themeBtn.innerHTML = theme==='dark'? '<i class="fa-solid fa-moon"></i> Theme' : '<i class="fa-solid fa-sun"></i> Theme';
+  });
+
+  document.getElementById('themeMobileToggle').addEventListener('click', ()=> themeBtn.click());
+
+  // on load recalc
+  recalc();
+
+  // expose for dev console
+  window.hyq = { createRow, recalc, captureState, restoreState };
+})();
+</script>
+
+</body>
+</html>
