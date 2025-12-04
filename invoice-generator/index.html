@@ -124,6 +124,57 @@
     margin-top: 14px;
   }
 }
+    /* MOBILE HEADER FIX */
+@media (max-width: 520px) {
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  header > div:first-child {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #brandLogoSmall {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  header .text-lg {
+    font-size: 15px !important;
+  }
+
+  header .text-xs {
+    font-size: 11px !important;
+  }
+
+  /* Button container goes full width */
+  header > div:last-child {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  header button {
+    flex: 1 1 calc(50% - 8px);
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+  }
+
+  /* Saved list dropdown full width */
+  #savedList {
+    right: 0;
+    width: 100% !important;
+  }
+}
+
 
 </style>
 
