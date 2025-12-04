@@ -542,16 +542,20 @@ downloadPdf.addEventListener("click", () => {
     jsPDF: { unit: "in", format: "a4", orientation: "portrait" }
   };
  // Add footer dynamically
+// Add footer dynamically (fixed bottom for PDF)
 const footer = document.createElement("div");
 footer.id = "pdf-footer";
 footer.style.textAlign = "center";
 footer.style.fontSize = "12px";
-footer.style.marginTop = "40px";
-footer.style.paddingTop = "10px";
+footer.style.marginTop = "50px";
+footer.style.padding = "10px 0";
 footer.style.borderTop = "1px solid #ccc";
+footer.style.width = "100%";
+footer.style.position = "relative";
 footer.innerText = "© 2025 Hyquantix Technologies Private Limited";
 
 element.appendChild(footer);
+
 
   html2pdf().set(opt).from(element).save().then(() => {
     // Remove temp PDF styling
