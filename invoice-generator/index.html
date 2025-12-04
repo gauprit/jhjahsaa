@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hyquantix — Invoice Generator (Advanced)</title>
   <link rel="icon" href="logo2.png" />
-
+    <!-- SEO & Discoverability -->
   <meta name="description" content="Create professional invoices instantly with the Hyquantix Invoice Generator. Mobile-friendly, secure, fast, and export-ready. No login required." />
   <meta name="keywords" content="invoice generator, free invoice maker, hyquantix invoice, GST invoice, PDF invoice generator, online invoice tool, create invoice India, billing software, quick invoice tool" />
   <meta name="author" content="Hyquantix Technologies Pvt. Ltd." />
@@ -13,7 +13,7 @@
   <meta name="googlebot" content="index, follow" />
   <link rel="canonical" href="https://hyquantix.com/invoice-generator" />
   
-  
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp preview) -->
   <meta property="og:title" content="Hyquantix Invoice Generator — Fast, Free & Professional" />
   <meta property="og:description" content="Generate invoices instantly. Mobile optimized. PDF export. Smart autosave. 100% free tool by Hyquantix Technologies." />
   <meta property="og:image" content="https://hyquantix.com/invoice-generator/preview.png" />
@@ -385,6 +385,7 @@
                     <th class="py-2">Item</th>
                     <th class="py-2 w-24">Qty</th>
                     <th class="py-2 w-28">Rate</th>
+                    <th class="py-2 w-28">Tax %</th>
                     <th class="py-2 w-28">Amount</th>
                     <th class="py-2 w-12"> </th>
                   </tr>
@@ -483,16 +484,37 @@ const ITEMS_KEY = "hyq_invoices_" + DEVICE_ID;
     const tr = document.createElement('tr');
     tr.className = 'align-top';
     tr.innerHTML = `
-      <td class="py-3 pr-4"><div contenteditable class="desc text-sm" style="min-width:120px">${item.desc}</div></td>
-      <td class="py-3"><input type="number" class="qty w-full px-2 py-1 rounded bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 text-sm" value="${item.qty}" min="0" /></td>
-      <td class="py-3"><input type="number" class="rate w-full px-2 py-1 rounded bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 text-sm" value="${item.rate}" min="0" step="0.01" /></td>
-      <td class="py-3"><div class="amount font-medium text-sm">${money(item.qty*item.rate)}</div></td>
-      <td class="py-3"><button class="remove px-2 py-1 rounded bg-red-600 text-white text-xs">x</button></td>
-    `;
+  <td class="py-3 pr-4">
+    <div contenteditable class="desc text-sm" style="min-width:120px">${item.desc}</div>
+  </td>
+
+  <td class="py-3">
+    <input type="number" class="qty w-full px-2 py-1 rounded bg-white/10 text-gray-100 border border-white/20 text-sm" value="${item.qty}" min="0" />
+  </td>
+
+  <td class="py-3">
+    <input type="number" class="rate w-full px-2 py-1 rounded bg-white/10 text-gray-100 border border-white/20 text-sm" value="${item.rate}" min="0" step="0.01" />
+  </td>
+
+  <td class="py-3">
+    <input type="number" class="taxRow w-full px-2 py-1 rounded bg-white/10 text-gray-100 border border-white/20 text-sm" value="${item.tax || 18}" min="0" step="0.1" />
+  </td>
+
+  <td class="py-3">
+    <div class="amount font-medium text-sm">0</div>
+  </td>
+
+  <td class="py-3">
+    <button class="remove px-2 py-1 rounded bg-red-600 text-white text-xs">x</button>
+  </td>
+`;
+
     // events
     tr.querySelector('.qty').addEventListener('input', recalc);
     tr.querySelector('.rate').addEventListener('input', recalc);
+    tr.querySelector('.taxRow').addEventListener('input', recalc);
     tr.querySelector('.desc').addEventListener('input', recalc);
+
     tr.querySelector('.remove').addEventListener('click', ()=>{ tr.remove(); recalc(); });
     itemsBody.appendChild(tr);
     recalc();
@@ -501,25 +523,33 @@ const ITEMS_KEY = "hyq_invoices_" + DEVICE_ID;
   function recalc(){
     const rows = [...itemsBody.querySelectorAll('tr')];
     let sub = 0;
-    rows.forEach(r=>{
-      const qty = parseFloat(r.querySelector('.qty').value) || 0;
-      const rate = parseFloat(r.querySelector('.rate').value) || 0;
-      const amt = qty * rate;
-      r.querySelector('.amount').textContent = money(amt);
-      sub += amt;
-    });
-    subtotalEl.textContent = money(sub);
+let totalTax = 0;
 
-    const discPerc = parseFloat(discountEl.value) || 0;
-    const discAmt = sub * (discPerc/100);
-    discountAmtEl.textContent = money(discAmt);
+rows.forEach(r => {
+  const qty = parseFloat(r.querySelector('.qty').value) || 0;
+  const rate = parseFloat(r.querySelector('.rate').value) || 0;
+  const taxPerc = parseFloat(r.querySelector('.taxRow').value) || 0;
 
-    const taxPerc = parseFloat(taxEl.value) || 0;
-    const taxAmt = (sub - discAmt) * (taxPerc/100);
-    taxAmtEl.textContent = money(taxAmt);
+  const base = qty * rate;
+  const taxAmount = base * (taxPerc / 100);
+  const totalRow = base + taxAmount;
 
-    const total = sub - discAmt + taxAmt;
-    totalEl.textContent = money(total);
+  r.querySelector('.amount').textContent = money(totalRow);
+
+  sub += base;
+  totalTax += taxAmount;
+});
+
+subtotalEl.textContent = money(sub);
+taxAmtEl.textContent = money(totalTax);
+
+const discPerc = parseFloat(discountEl.value) || 0;
+const discAmt = sub * (discPerc / 100);
+discountAmtEl.textContent = money(discAmt);
+
+const finalTotal = sub - discAmt + totalTax;
+totalEl.textContent = money(finalTotal);
+
 
     // update preview invoice no and date
     previewInvoiceNo.textContent = invoiceNo.value ? ('#' + invoiceNo.value) : '#INV-0001';
@@ -530,8 +560,8 @@ const ITEMS_KEY = "hyq_invoices_" + DEVICE_ID;
   }
 
   // initial rows
-  createRow({desc:'Development — Landing Page', qty:1, rate:15000});
-  createRow({desc:'Monthly Maintenance', qty:1, rate:3000});
+  createRow({desc:'Development — Landing Page', qty:1, rate:0});
+  createRow({desc:'Monthly Maintenance', qty:1, rate:0});
 
   addRow.addEventListener('click', ()=> createRow({desc:'New Item', qty:1, rate:0}));
   taxEl.addEventListener('input', recalc);
