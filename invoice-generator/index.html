@@ -5,6 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hyquantix — Invoice Generator (Advanced)</title>
   <link rel="icon" href="logo2.png" />
+    <!-- SEO & Discoverability -->
+<meta name="description" content="Create professional invoices instantly with the Hyquantix Invoice Generator. Mobile-friendly, secure, fast, and export-ready. No login required." />
+<meta name="keywords" content="invoice generator, free invoice maker, hyquantix invoice, GST invoice, PDF invoice generator, online invoice tool, create invoice India, billing software, quick invoice tool" />
+<meta name="author" content="Hyquantix Technologies Pvt. Ltd." />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<link rel="canonical" href="https://hyquantix.com/invoice-generator" />
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp preview) -->
+<meta property="og:title" content="Hyquantix Invoice Generator — Fast, Free & Professional" />
+<meta property="og:description" content="Generate invoices instantly. Mobile optimized. PDF export. Smart autosave. 100% free tool by Hyquantix Technologies." />
+<meta property="og:image" content="https://hyquantix.com/invoice-generator/preview.png" />
+<meta property="og:url" content="https://hyquantix.com/invoice-generator" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Hyquantix Technologies" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hyquantix Invoice Generator — Create Invoices Instantly" />
+<meta name="twitter:description" content="Free online invoice generator. Professional templates, PDF export, mobile-friendly design." />
+<meta name="twitter:image" content="https://hyquantix.com/invoice-generator/logo2.png" />
+
+<!-- PWA / Mobile Friendly -->
+<meta name="theme-color" content="#0b0f19" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<!-- Preload for speed -->
+<link rel="preload" href="logo2.png" as="image" />
+<link rel="preconnect" href="https://cdn.tailwindcss.com" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+<!-- Structured Data (Google Rich Results) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Hyquantix Invoice Generator",
+  "url": "https://hyquantix.com/invoice-generator",
+  "description": "A free, fast, mobile-friendly invoice generator with PDF export and autosave.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "creator": {
+    "@type": "Organization",
+    "name": "Hyquantix Technologies Pvt. Ltd.",
+    "url": "https://hyquantix.com"
+  }
+}
+</script>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -199,6 +248,11 @@
         </button>
         <button id="saveBtn" class="no-print btn inline-flex items-center gap-2 px-3 py-2 rounded-md bg-emerald-500 text-white hover:bg-emerald-600">Save</button>
         <div class="relative inline-block">
+        <button id="savedListBtn" 
+        class="no-print inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white/10 
+               text-gray-100 placeholder-gray-400 border border-white/20">
+  Saved
+</button>
 
           <div id="savedList" class="absolute right-0 mt-2 w-64 bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 rounded-md shadow-lg p-2 hidden glass z-50"></div>
         </div>
@@ -378,6 +432,16 @@
 
 
 <script>
+    // Generate a unique ID per device (saved once)
+if (!localStorage.getItem("HYQ_DEVICE_ID")) {
+  localStorage.setItem("HYQ_DEVICE_ID", "dev_" + Math.random().toString(36).substring(2));
+}
+
+const DEVICE_ID = localStorage.getItem("HYQ_DEVICE_ID");
+
+// Use new isolated localStorage key
+const ITEMS_KEY = "hyq_invoices_" + DEVICE_ID;
+
 // Advanced Invoice Generator JS
 (function(){
   // Elements
@@ -407,7 +471,7 @@
   const clearBtn = document.getElementById('clearBtn');
   const duplicateBtn = document.getElementById('duplicateBtn');
 
-  const ITEMS_KEY = 'hyq_invoices_v1';
+
 
   // helpers
   function money(val){
@@ -748,12 +812,14 @@ element.appendChild(footer);
 
   // autosave every 8s to local draft
   setInterval(()=>{
-    localStorage.setItem('hyq_invoice_draft', JSON.stringify(captureState()));
+    localStorage.setItem("hyq_invoice_draft_" + DEVICE_ID, JSON.stringify(captureState()));
     saveStatus.textContent = 'autosaved';
   }, 8000);
 
   // load draft
-  const draft = localStorage.getItem('hyq_invoice_draft'); if(draft) restoreState(JSON.parse(draft));
+  const draft = localStorage.getItem("hyq_invoice_draft_" + DEVICE_ID);
+if (draft) restoreState(JSON.parse(draft));
+
 
   // theme toggle
   const themeBtn = document.getElementById('toggleTheme');
