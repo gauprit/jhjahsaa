@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hyquantix — Invoice Generator (Advanced)</title>
-  <link rel="icon" href="logo1.png" />
+  <link rel="icon" href="logo2.png" />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -79,52 +79,7 @@
   }
 
 }
-    /* Mobile fixes */
-@media (max-width: 480px) {
-
-  #invoiceCard {
-    padding: 14px !important;
-  }
-
-  #invoiceCard table th,
-  #invoiceCard table td {
-    font-size: 11px !important;
-    padding: 6px !important;
-  }
-
-  #invoiceCard input,
-  #invoiceCard textarea {
-    font-size: 13px !important;
-  }
-
-  .w-20.h-20 {
-    width: 60px !important;
-    height: 60px !important;
-  }
-
-  #companyName {
-    font-size: 14px !important;
-  }
-
-  #companyAddr {
-    font-size: 12px !important;
-  }
-
-  #clientName {
-    font-size: 14px !important;
-  }
-
-  #clientAddr {
-    font-size: 12px !important;
-  }
-
-  /* Totals box mobile fix */
-  .w-full.sm\:w-1\/3 {
-    width: 100% !important;
-    margin-top: 14px;
-  }
-}
-    /* MOBILE HEADER FIX */
+/* MOBILE HEADER FIX */
 @media (max-width: 520px) {
 
   header {
@@ -175,24 +130,49 @@
   }
 }
 
-/* FORCE A4 PDF LAYOUT — FIX MOBILE MISALIGNMENT */
-#a4pdfWrapper {
-  width: 794px;          /* A4 width in px (96dpi) */
-  max-width: 794px;
-  margin: 0 auto;
-}
+/* Mobile fixes */
+@media (max-width: 480px) {
 
-/* On mobile, override responsive layout for PDF */
-@media (max-width: 600px) {
   #invoiceCard {
-    transform: scale(1);       /* Prevent mobile auto-zoom */
-    width: 794px !important;   /* Force A4 width */
-    margin: 0 auto !important;
+    padding: 14px !important;
   }
 
-  /* Make sure tables don't collapse */
-  #invoiceCard table {
-    table-layout: fixed !important;
+  #invoiceCard table th,
+  #invoiceCard table td {
+    font-size: 11px !important;
+    padding: 6px !important;
+  }
+
+  #invoiceCard input,
+  #invoiceCard textarea {
+    font-size: 13px !important;
+  }
+
+  .w-20.h-20 {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  #companyName {
+    font-size: 14px !important;
+  }
+
+  #companyAddr {
+    font-size: 12px !important;
+  }
+
+  #clientName {
+    font-size: 14px !important;
+  }
+
+  #clientAddr {
+    font-size: 12px !important;
+  }
+
+  /* Totals box mobile fix */
+  .w-full.sm\:w-1\/3 {
+    width: 100% !important;
+    margin-top: 14px;
   }
 }
 
@@ -206,7 +186,7 @@
     <!-- Header -->
     <header class="w-full py-4 px-4 sm:px-6 lg:px-8 flex items-center justify-between bg-transparent">
       <div class="flex items-center gap-4">
-        <img id="brandLogoSmall" src="logo1.png" alt="logo" class="w-12 h-12 rounded-md shadow-md object-cover bg-white/5">
+        <img id="brandLogoSmall" src="logo2.png" alt="logo" class="w-12 h-12 rounded-md shadow-md object-cover bg-white/5">
         <div>
           <div class="text-lg font-bold">Hyquantix Invoice Maker</div>
           <div class="text-xs text-gray-400">Advanced — mobile-first, exportable & savable</div>
@@ -219,11 +199,11 @@
         </button>
         <button id="saveBtn" class="no-print btn inline-flex items-center gap-2 px-3 py-2 rounded-md bg-emerald-500 text-white hover:bg-emerald-600">Save</button>
         <div class="relative inline-block">
-          <button id="savedListBtn" class="no-print inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20">Saved</button>
+
           <div id="savedList" class="absolute right-0 mt-2 w-64 bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20 rounded-md shadow-lg p-2 hidden glass z-50"></div>
         </div>
         <button id="downloadPdf" class="no-print inline-flex items-center gap-2 px-3 py-2 rounded-md bg-blue-600 text-white">Export PDF</button>
-        <button id="printBtn" class="no-print inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white/10 text-gray-100 placeholder-gray-400 border border-white/20">Print</button>
+
       </div>
     </header>
 
@@ -244,7 +224,7 @@
             <label class="block text-xs text-gray-300">Company Logo</label>
             <div class="mt-2 flex items-center gap-3">
               <input id="logoInput" type="file" accept="image/*" class="text-sm text-gray-300" />
-              <img id="logoPreview" src="logo1.png" alt="logo" class="w-16 h-16 rounded-md object-cover border border-white/6" />
+              <img id="logoPreview" src="logo2.png" alt="logo" class="w-16 h-16 rounded-md object-cover border border-white/6" />
             </div>
           </div>
 
@@ -298,7 +278,7 @@
             <!-- Header row -->
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div class="flex items-center gap-4">
-                <img id="logoMain" src="logo1.png" alt="logo" class="w-20 h-20 rounded-md object-cover border border-white/6" />
+                <img id="logoMain" src="logo2.png" alt="logo" class="w-20 h-20 rounded-md object-cover border border-white/6" />
                 <div>
                   <input id="companyName" 
        class="font-semibold text-lg bg-white/10 text-gray-100 border border-white/20 px-2 py-1 rounded w-full"
@@ -508,6 +488,35 @@
   // PDF export
 downloadPdf.addEventListener("click", () => {
   const element = document.getElementById("invoiceCard");
+  // FIX MOBILE PDF ALIGNMENT: Force Bill To + Payment Details into 2 columns
+const billPaySection = element.querySelector(".mt-6.grid");
+// FIX: Keep logo + company name + invoice number all in ONE LINE during PDF export
+const headerRow = element.querySelector(".flex.flex-col.sm\\:flex-row");
+if (headerRow) {
+  headerRow.style.display = "flex";
+  headerRow.style.flexDirection = "row";      // force single row
+  headerRow.style.justifyContent = "space-between";
+  headerRow.style.alignItems = "center";
+  headerRow.style.gap = "20px";
+  headerRow.style.width = "100%";
+}
+
+const topRightBlock = element.querySelector(".text-right");
+if (topRightBlock) {
+  topRightBlock.style.textAlign = "right";
+  topRightBlock.style.marginLeft = "auto";
+  topRightBlock.style.display = "flex";
+  topRightBlock.style.flexDirection = "column";
+  topRightBlock.style.alignItems = "flex-end";
+}
+
+if (billPaySection) {
+  billPaySection.style.display = "grid";
+  billPaySection.style.gridTemplateColumns = "1fr 1fr";
+  billPaySection.style.columnGap = "20px";
+  billPaySection.style.width = "100%";
+}
+
 
   // Inject CLEAN PDF styling
   const pdfStyle = document.createElement("style");
