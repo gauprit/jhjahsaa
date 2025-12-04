@@ -175,6 +175,26 @@
   }
 }
 
+/* FORCE A4 PDF LAYOUT — FIX MOBILE MISALIGNMENT */
+#a4pdfWrapper {
+  width: 794px;          /* A4 width in px (96dpi) */
+  max-width: 794px;
+  margin: 0 auto;
+}
+
+/* On mobile, override responsive layout for PDF */
+@media (max-width: 600px) {
+  #invoiceCard {
+    transform: scale(1);       /* Prevent mobile auto-zoom */
+    width: 794px !important;   /* Force A4 width */
+    margin: 0 auto !important;
+  }
+
+  /* Make sure tables don't collapse */
+  #invoiceCard table {
+    table-layout: fixed !important;
+  }
+}
 
 </style>
 
