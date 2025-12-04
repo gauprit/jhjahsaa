@@ -435,6 +435,24 @@ animation: gradientFlux 5.8s ease-in-out infinite;
       filter: drop-shadow(0 0 6px rgba(59,130,246,0.5));
     }
     
+.exp-item.active {
+  color: #22d3ee;    /* cyan */
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .35s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 
 
   </style>
@@ -764,110 +782,87 @@ animation: gradientFlux 5.8s ease-in-out infinite;
 
   </section>
   <!-- Expertise section -->
-<section id="expertise" class="relative overflow-hidden py-24 bg-white text-gray-700 "
-         style="background-image: url('grid.svg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
-         <div class="absolute inset-0 bg-white/80"></div>
+<section id="expertise" class="w-full py-20 bg-black text-white">
+  <!-- Section heading: "Intelligent Solutions We Deliver" -->
+<div class="text-center mb-10">
 
-    <div class="container mx-auto px-6 text-center">
-      <div class="relative inline-block mb-16">
-  <h3 class="text-4xl md:text-4xl font-extrabold mb-4 text-gray-900">
-    Empowering the Future with <span class="text-cyan-600">AI Innovation</span>
-  </h3>
-  <p class="text-gray-700 text-lg">
-    From intelligent automation to advanced analytics, our AI-powered expertise helps businesses evolve, adapt, and lead in the digital era.
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+    Intelligent Solutions We Deliver
+  </h2>
+
+  <p class="mt-3 max-w-xl mx-auto text-gray-400 text-sm md:text-base">
+    Secure, scalable, and intelligent technologies designed to transform the way your business operates.
   </p>
+
+</div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
+
+    <!-- LEFT MENU -->
+    <div id="expertise-menu" class="space-y-5">
+      <div class="exp-item text-2xl font-semibold cursor-pointer hover:text-cyan-400 active" data-key="cloud">Cloud Solution</div>
+      <div 
+  class="exp-item text-2xl font-semibold cursor-pointer hover:text-cyan-400" 
+  data-key="webdev"
+  onclick="window.location.href='/webdev/'"
+>
+  Web Development
+</div>
+<div 
+  class="exp-item text-2xl font-semibold cursor-pointer hover:text-cyan-400" 
+  data-key="scraping"
+  onclick="window.location.href='/webscrapy/'"
+>
+  Web Scraping
 </div>
 
 
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Card -->
-        <a href="/webdev/" class="block">
-  <div class="group bg-gray-50 p-10 rounded-2xl border border-gray-200 
-              hover:border-cyan-400 shadow-sm hover:shadow-lg transform 
-              transition-all duration-300 hover:scale-105 cursor-pointer">
-              
-    <div class="flex justify-center mb-4">
-      <div data-lucide="cloud-upload" class="w-8 h-8 text-cyan-600"></div>
+
+      <div 
+  class="exp-item text-2xl font-semibold cursor-pointer hover:text-cyan-400" 
+  data-key="automation"
+  onclick="window.location.href='/automation/'"
+>
+  Automation Process
+</div>
+
+      <div 
+  class="exp-item text-2xl font-semibold cursor-pointer hover:text-cyan-400" 
+  data-key="hr"
+  onclick="window.location.href='/HRautomation/'"
+>
+  HR Solutions
+</div>
+
+      <div class="exp-item text-2xl font-semibold cursor-pointer hover:text-cyan-400" data-key="data">Data Analytics</div>
+      <div class="exp-item text-2xl font-semibold cursor-pointer hover:text-cyan-400" data-key="cyber">Cybersecurity</div>
+      <div class="exp-item text-2xl font-semibold cursor-pointer hover:text-cyan-400" data-key="cloudsol">Customer Services</div>
     </div>
 
-    <h4 class="text-lg font-semibold text-gray-900 mb-2">Web Development</h4>
+    <!-- RIGHT CONTENT -->
+    <div id="expertise-content" class="p-8 border border-white/10 rounded-xl bg-white/5 backdrop-blur-xl transition-all duration-500">
 
-    <p class="text-gray-600 text-sm">
-      Modern, fast, and scalable websites tailored for business growth and digital excellence.
-    </p>
+      <h2 id="exp-title" class="text-3xl font-bold mb-3">Cloud</h2>
 
-  </div>
-</a>
+      <p id="exp-desc" class="text-gray-300 mb-6">
+        Enterprise-grade cloud transformation for scalability, security, and performance. 
+        We architect, migrate, and optimize cloud environments so your organization can 
+        innovate faster, reduce cost, and operate with agility.
+      </p>
 
-        <a href="/webscrapy/" class="block">
-  <div class="group bg-gray-50 p-10 rounded-2xl border border-gray-200 hover:border-cyan-400 shadow-sm hover:shadow-lg transform transition-all duration-300 hover:scale-105">
-    <div class="flex justify-center mb-4">
-      <div data-lucide="mouse-pointer-click" class="w-8 h-8 text-cyan-600"></div>
+      <lottie-player 
+          id="expertise-lottie"
+          src="https://lottie.host/efd65d5e-0e9b-4e1d-ba38-e72e6d6e3e49/iznk89s4ey.json"
+          background="transparent"
+          speed="1"
+          style="width: 100%; height: 300px;"
+          loop autoplay>
+      </lottie-player>
+
     </div>
-    <h4 class="text-lg font-semibold text-gray-900 mb-2">Web Scraping</h4>
-    <p class="text-gray-600 text-sm">Extract data, gain insights, and stay competitive.</p>
-  </div>
-</a>
-
-
-        <a href="/automation/" class="block">
-  <div class="group bg-gray-50 p-10 rounded-2xl border border-gray-200 
-              hover:border-cyan-400 shadow-sm hover:shadow-lg 
-              transform transition-all duration-300 hover:scale-105">
-
-    <div class="flex justify-center mb-4">
-      <div data-lucide="monitor-smartphone" class="w-8 h-8 text-cyan-600"></div>
-    </div>
-
-    <h4 class="text-lg font-semibold text-gray-900 mb-2">Automation Process</h4>
-    <p class="text-gray-600 text-sm">Streamline tasks, boost efficiency, and reduce manual work.</p>
-
-  </div>
-</a>
-
-
-        <a href="/HRautomation/" class="block group">
-  <div class="bg-gray-50 p-10 rounded-2xl border border-gray-200 
-              hover:border-cyan-400 shadow-sm hover:shadow-lg 
-              transform transition-all duration-300 hover:scale-105">
     
-    <div class="flex justify-center mb-4">
-      <div data-lucide="users" class="w-8 h-8 text-cyan-600"></div>
-    </div>
-
-    <h4 class="text-lg font-semibold text-gray-900 mb-2">HR Solutions</h4>
-    <p class="text-gray-600 text-sm">HR automation boosts efficiency and empowers growth.</p>
-
   </div>
-</a>
-
-
-        <div class="group bg-gray-50 p-10 rounded-2xl border border-gray-200 hover:border-cyan-400 shadow-sm hover:shadow-lg transform transition-all duration-300 hover:scale-105">
-          <div class="flex justify-center mb-4"><div data-lucide="radar" class="w-8 h-8 text-cyan-600"></div></div>
-          <h4 class="text-lg font-semibold text-gray-900 mb-2">Data Analytics</h4>
-          <p class="text-gray-600 text-sm">Transform data, discover trends, and make informed decisions.</p>
-        </div>
-
-        <div class="group bg-gray-50 p-10 rounded-2xl border border-gray-200 hover:border-cyan-400 shadow-sm hover:shadow-lg transform transition-all duration-300 hover:scale-105">
-          <div class="flex justify-center mb-4"><div data-lucide="smartphone" class="w-8 h-8 text-cyan-600"></div></div>
-          <h4 class="text-lg font-semibold text-gray-900 mb-2">IT Consulting</h4>
-          <p class="text-gray-600 text-sm">Expert advice, strategic planning, and technology roadmaps.</p>
-        </div>
-
-        <div class="group bg-gray-50 p-10 rounded-2xl border border-gray-200 hover:border-cyan-400 shadow-sm hover:shadow-lg transform transition-all duration-300 hover:scale-105">
-          <div class="flex justify-center mb-4"><div data-lucide="shield" class="w-8 h-8 text-cyan-600"></div></div>
-          <h4 class="text-lg font-semibold text-gray-900 mb-2">Cybersecurity</h4>
-          <p class="text-gray-600 text-sm">Protect data, prevent threats, and ensure business continuity.</p>
-        </div>
-
-        <div class="group bg-gray-50 p-10 rounded-2xl border border-gray-200 hover:border-cyan-400 shadow-sm hover:shadow-lg transform transition-all duration-300 hover:scale-105">
-          <div class="flex justify-center mb-4"><div data-lucide="cloud" class="w-8 h-8 text-cyan-600"></div></div>
-          <h4 class="text-lg font-semibold text-gray-900 mb-2">Cloud Solutions</h4>
-          <p class="text-gray-600 text-sm">Scalable, secure, and cost-effective cloud infrastructure.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+</section>
 
 
  <section 
@@ -1837,8 +1832,10 @@ document.querySelectorAll(".mobile-sub-btn").forEach((btn) => {
   });
 });
 </script>
+<script src="expertise.js"></script>
 </body>
 </html>
+
 
 
 
