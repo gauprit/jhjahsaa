@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Data Analytics Services | Hyquantix Technologies</title>
+  <meta name="description"
+    content="Hyquantix Data Analytics services help businesses turn raw data into actionable insights using BI dashboards, predictive analytics, and AI-powered reporting." />
+  <meta name="keywords"
+    content="Data Analytics, Business Intelligence, BI Dashboards, Predictive Analytics, Data Visualization, Hyquantix" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lottie -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+    body { font-family: 'Manrope', system-ui; }
+
+    .btn-primary{
+      background: linear-gradient(90deg,#06b6d4,#6366f1);
+      color:#fff;
+      font-weight:700;
+      padding:.75rem 1.75rem;
+      border-radius:9999px;
+      box-shadow:0 10px 30px rgba(99,102,241,.35);
+      transition:.25s ease;
+    }
+    .btn-primary:hover{ transform:translateY(-2px); opacity:.95; }
+
+    .btn-ghost{
+      padding:.75rem 1.75rem;
+      border-radius:9999px;
+      border:1px solid rgba(255,255,255,.35);
+      color:#e5e7eb;
+      transition:.25s ease;
+    }
+    .btn-ghost:hover{ background:rgba(255,255,255,.08); }
+
+    .nav-item{
+      color:#cbd5f5;
+      font-weight:700;
+    }
+    .nav-item:hover{ color:#22d3ee; }
+    .analytics-card{
+  position: relative;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  backdrop-filter: blur(8px);
+  transition: 
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.analytics-card.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.analytics-card:hover{
+  transform: translateY(-6px) scale(1.02);
+  border-color: #22d3ee;
+  box-shadow:
+    0 25px 60px rgba(34,211,238,0.18),
+    0 0 0 1px rgba(34,211,238,0.3);
+}
+
+.analytics-card .icon{
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.analytics-card h3{
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: .75rem;
+  color: #0f172a;
+}
+
+.analytics-card p{
+  color: #475569;
+  line-height: 1.6;
+}
+
+.analytics-card .stats{
+  margin-top: 1.2rem;
+  font-weight: 700;
+  color: #0ea5e9;
+  font-size: .95rem;
+}
+/* Hero text reveal */
+.hero-reveal {
+  animation: heroFadeUp .9s ease-out forwards;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Highlight pulse (very subtle) */
+#hero-highlight {
+  position: relative;
+}
+
+#hero-highlight.pulse {
+  animation: pulseGlow 3.2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(34,211,238,0);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(34,211,238,0.55);
+  }
+}
+
+
+  </style>
+</head>
+
+<body class="bg-white text-gray-700">
+
+<!-- ================= HEADER ================= -->
+<header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/70 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="/" class="flex flex-col">
+      <img src="/logo1.png" class="w-36">
+      <span class="text-xs text-cyan-400 tracking-wide">Intelligent · Reliable · Secure</span>
+    </a>
+
+    <nav class="hidden md:flex gap-8">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/about/" class="nav-item">About</a>
+      <a href="/services/" class="nav-item text-cyan-400">Data Analytics</a>
+      <a href="/career/" class="nav-item">Careers</a>
+      <a href="/contact/" class="nav-item">Contact</a>
+    </nav>
+
+    <a href="/contact/" class="hidden md:inline-block btn-primary">Consult Now</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="relative pt-32 md:pt-52 pb-32 bg-[#020617] text-white overflow-hidden">
+  
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+    
+    <div class="absolute -top-24 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse"></div>
+    <div class="absolute top-1/2 -right-24 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[100px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+    <div class="lg:col-span-7">
+      <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-cyan-400 text-[11px] font-black uppercase tracking-[0.25em] mb-10 shadow-2xl hero-reveal" style="animation-delay: 0.1s">
+        <span class="flex h-2 w-2 rounded-full bg-cyan-500 shadow-[0_0_10px_#22d3ee]"></span>
+        Strategic Intelligence Engine
+      </div>
+
+      <h1 class="text-6xl md:text-8xl font-black mb-8 leading-[0.85] tracking-tighter hero-reveal" style="animation-delay: 0.2s">
+        Master the <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500">
+          Data Flow.
+        </span>
+      </h1>
+
+      <p class="text-slate-400 text-xl leading-relaxed mb-12 max-w-xl hero-reveal" style="animation-delay: 0.3s">
+        Hyquantix engineers the infrastructure that transforms fragmented data into a 
+        <span class="text-white font-semibold">unified strategic asset</span>. 
+        Uncover patterns, automate logic, and lead with absolute certainty.
+      </p>
+
+      <div class="flex flex-wrap gap-6 hero-reveal" style="animation-delay: 0.4s">
+        <a href="/contact/" class="group relative px-8 py-4 bg-white text-slate-950 font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+          <div class="absolute inset-0 bg-cyan-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+          <span class="relative">Talk to an Expert →</span>
+        </a>
+        <a href="#services" class="px-8 py-4 bg-slate-900/50 border border-slate-800 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all backdrop-blur-md">
+          Explore Capabilities
+        </a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 relative hero-reveal" style="animation-delay: 0.5s">
+      <div class="grid grid-cols-2 gap-5 relative z-10">
+        
+        <div class="group p-8 bg-slate-900/40 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] hover:border-cyan-500/50 transition-all duration-500 shadow-2xl">
+          <div class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+          </div>
+          <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Alpha Yield</p>
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-black text-white">+38</span>
+            <span class="text-cyan-400 font-bold">%</span>
+          </div>
+        </div>
+
+        <div class="group p-8 bg-slate-900/40 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] mt-10 hover:border-blue-500/50 transition-all duration-500 shadow-2xl">
+          <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Integrity</p>
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-black text-white">99.9</span>
+            <span class="text-blue-400 font-bold">%</span>
+          </div>
+        </div>
+
+        <div class="group p-8 bg-slate-900/40 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] -mt-5 hover:border-indigo-500/50 transition-all duration-500 shadow-2xl">
+          <div class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Latency</p>
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-black text-white">12</span>
+            <span class="text-indigo-400 font-bold">ms</span>
+          </div>
+        </div>
+
+        <div class="group p-8 bg-slate-900/40 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] mt-5 hover:border-cyan-400/50 transition-all duration-500 shadow-2xl">
+          <div class="w-12 h-12 bg-cyan-400/10 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v5m-3-4h6m-6-4h6m-6-4h6m-6-4h6m-3-1V3"></path></svg>
+          </div>
+          <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Efficiency</p>
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-black text-white">+46</span>
+            <span class="text-cyan-400 font-bold">%</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-12 flex items-center justify-center gap-8 opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 overflow-hidden py-4 border-y border-white/5">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">PowerBI</span>
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Snowflake</span>
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Azure</span>
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Python</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Entrance Animations */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-reveal {
+    opacity: 0;
+    animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>
+
+<section id="services" class="py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-24">
+            <div class="max-w-2xl">
+                <h2 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6">
+                    Data Analytics <br/>Capabilities.
+                </h2>
+                <div class="h-1 w-24 bg-cyan-500"></div>
+            </div>
+            <p class="text-slate-500 text-lg max-w-sm">
+                We provide end-to-end data engineering and business intelligence for companies that demand precision.
+            </p>
+        </div>
+
+        <div class="service-row group grid md:grid-cols-12 py-16 gap-8">
+            <div class="md:col-span-1 text-slate-200 text-4xl font-black group-hover:text-cyan-500 transition-colors">01</div>
+            <div class="md:col-span-4">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-4">Enterprise BI & Dashboards</h3>
+                <p class="text-slate-500 leading-relaxed">Executive-level visibility into every KPI. We design high-performance dashboards that load in milliseconds.</p>
+            </div>
+            <div class="md:col-span-4 grid grid-cols-2 gap-4">
+                <ul class="text-sm font-bold text-slate-600 space-y-2">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-500"></i> Power BI / Tableau</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-500"></i> Custom D3.js</li>
+                </ul>
+                <ul class="text-sm font-bold text-slate-600 space-y-2">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-500"></i> Real-time Sync</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-500"></i> Mobile Enabled</li>
+                </ul>
+            </div>
+            <div class="md:col-span-3 flex md:justify-end items-center">
+                <div class="text-right">
+                    <p class="text-3xl font-black text-slate-900">99.8%</p>
+                    <p class="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Reporting Accuracy</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-row group grid md:grid-cols-12 py-16 gap-8">
+            <div class="md:col-span-1 text-slate-200 text-4xl font-black group-hover:text-indigo-500 transition-colors">02</div>
+            <div class="md:col-span-4">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-4">Predictive Engineering</h3>
+                <p class="text-slate-500 leading-relaxed">Forecast market trends and customer behavior using ML-driven anomaly detection and regression models.</p>
+            </div>
+            <div class="md:col-span-4 grid grid-cols-2 gap-4">
+                <ul class="text-sm font-bold text-slate-600 space-y-2">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-500"></i> Churn Prediction</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-500"></i> Market Forecasting</li>
+                </ul>
+                <ul class="text-sm font-bold text-slate-600 space-y-2">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-500"></i> Python / R Logic</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-500"></i> Anomaly Alerting</li>
+                </ul>
+            </div>
+            <div class="md:col-span-3 flex md:justify-end items-center">
+                <div class="text-right">
+                    <p class="text-3xl font-black text-slate-900">-40%</p>
+                    <p class="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Risk Mitigation</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-row group grid md:grid-cols-12 py-16 gap-8">
+            <div class="md:col-span-1 text-slate-200 text-4xl font-black group-hover:text-cyan-500 transition-colors">03</div>
+            <div class="md:col-span-4">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-4">Data Governance & RLS</h3>
+                <p class="text-slate-500 leading-relaxed">Sophisticated Row-Level Security ensures the right eyes see the right data. Secure, compliant, and audited.</p>
+            </div>
+            <div class="md:col-span-4 grid grid-cols-2 gap-4">
+                <ul class="text-sm font-bold text-slate-600 space-y-2">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-500"></i> SOC2 Compliant</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-500"></i> Role-Based Access</li>
+                </ul>
+                <ul class="text-sm font-bold text-slate-600 space-y-2">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-500"></i> Encryption (AES)</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-500"></i> GDPR Alignment</li>
+                </ul>
+            </div>
+            <div class="md:col-span-3 flex md:justify-end items-center">
+                <div class="text-right">
+                    <p class="text-3xl font-black text-slate-900">100%</p>
+                    <p class="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Access Control</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="relative py-24 bg-white overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.4] pointer-events-none" 
+       style="background-image: radial-gradient(#e2e8f0 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+      
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-50 border border-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+          Technical Infrastructure
+        </div>
+        
+        <h2 class="text-5xl font-bold text-slate-900 mb-8 tracking-tighter leading-tight">
+          Enterprise Data <br/>
+          <span class="text-cyan-600">Stack Mastery.</span>
+        </h2>
+        
+        <p class="text-slate-500 text-lg mb-10 leading-relaxed border-l-2 border-slate-200 pl-6">
+          We implement the **Modern Data Stack** (MDS) to ensure your infrastructure is modular, cost-effective, and blazing fast.
+        </p>
+        
+        <div class="space-y-6">
+          <div class="group flex items-start gap-5 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-cyan-200 transition-all duration-300">
+            <div class="p-3 bg-cyan-50 text-cyan-600 rounded-xl group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="text-slate-900 font-bold text-lg">Cloud Warehousing</h4>
+              <p class="text-sm text-slate-500">Snowflake and BigQuery setup optimized for petabyte-scale storage.</p>
+            </div>
+          </div>
+
+          <div class="group flex items-start gap-5 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300">
+            <div class="p-3 bg-blue-50 text-blue-600 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <i data-lucide="git-branch" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="text-slate-900 font-bold text-lg">Semantic Modeling</h4>
+              <p class="text-sm text-slate-500">Standardizing business logic via dbt for a single source of truth.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-cyan-100 to-indigo-100 rounded-[3rem] blur-2xl opacity-50"></div>
+        
+        <div class="relative bg-white border border-slate-200 rounded-[2.5rem] p-12 shadow-xl">
+          <div class="grid grid-cols-3 gap-x-8 gap-y-12">
+              <div class="flex flex-col items-center gap-3 group/item">
+                <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 group-hover/item:border-cyan-300 group-hover/item:bg-white transition-all">
+                   <i data-lucide="box" class="w-7 h-7 text-slate-400 group-hover/item:text-cyan-600"></i>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400">SNOWFLAKE</span>
+              </div>
+              <div class="flex flex-col items-center gap-3 group/item">
+                <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 group-hover/item:border-cyan-300 group-hover/item:bg-white transition-all">
+                   <i data-lucide="code-2" class="w-7 h-7 text-slate-400 group-hover/item:text-cyan-600"></i>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400">PYTHON</span>
+              </div>
+              <div class="flex flex-col items-center gap-3 group/item">
+                <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 group-hover/item:border-cyan-300 group-hover/item:bg-white transition-all">
+                   <i data-lucide="terminal" class="w-7 h-7 text-slate-400 group-hover/item:text-cyan-600"></i>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400">DBT</span>
+              </div>
+              <div class="flex flex-col items-center gap-3 group/item">
+                <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 group-hover/item:border-cyan-300 group-hover/item:bg-white transition-all">
+                   <i data-lucide="cloud" class="w-7 h-7 text-slate-400 group-hover/item:text-cyan-600"></i>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400">AZURE</span>
+              </div>
+              <div class="flex flex-col items-center gap-3 group/item">
+                <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 group-hover/item:border-cyan-300 group-hover/item:bg-white transition-all">
+                   <i data-lucide="bar-chart-big" class="w-7 h-7 text-slate-400 group-hover/item:text-cyan-600"></i>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400">POWER BI</span>
+              </div>
+              <div class="flex flex-col items-center gap-3 group/item">
+                <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 group-hover/item:border-cyan-300 group-hover/item:bg-white transition-all">
+                   <i data-lucide="pie-chart" class="w-7 h-7 text-slate-400 group-hover/item:text-cyan-600"></i>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400">TABLEAU</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-16">
+      <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Our Engineering Lifecycle</h2>
+      <p class="text-slate-500">How we turn your raw data into actionable intelligence.</p>
+    </div>
+
+    
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="p-6 border-l-2 border-cyan-500">
+        <h4 class="font-bold text-slate-900 mb-2">01 Ingestion</h4>
+        <p class="text-sm text-slate-500">Connecting APIs, CRMs, and SQL databases into a single Cloud Lake.</p>
+      </div>
+      <div class="p-6 border-l-2 border-blue-500">
+        <h4 class="font-bold text-slate-900 mb-2">02 Cleansing</h4>
+        <p class="text-sm text-slate-500">Automated SQL transformations (dbt) to ensure data is clean and valid.</p>
+      </div>
+      <div class="p-6 border-l-2 border-indigo-500">
+        <h4 class="font-bold text-slate-900 mb-2">03 Analysis</h4>
+        <p class="text-sm text-slate-500">Applying ML models for churn, forecasting, and anomaly detection.</p>
+      </div>
+      <div class="p-6 border-l-2 border-slate-900">
+        <h4 class="font-bold text-slate-900 mb-2">04 Activation</h4>
+        <p class="text-sm text-slate-500">Live BI dashboards and automated alerts sent to stakeholders.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-20">
+      <div class="flex items-center gap-2 text-cyan-600 font-bold text-xs uppercase tracking-widest mb-4">
+        <span class="w-8 h-[1px] bg-cyan-600"></span>
+        Service Portfolio
+      </div>
+      <h2 class="text-5xl font-black text-slate-900 tracking-tighter">Core Capabilities.</h2>
+    </div>
+    
+    <div class="space-y-0">
+      
+      <div class="service-row group grid lg:grid-cols-12 py-16 border-t border-slate-100 hover:bg-slate-50/50 transition-all duration-500 px-4 -mx-4 rounded-xl">
+        <div class="lg:col-span-1">
+          <span class="text-4xl font-black text-slate-200 group-hover:text-cyan-500 transition-colors duration-500">01</span>
+        </div>
+        
+        <div class="lg:col-span-4 pr-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="p-2 bg-cyan-50 text-cyan-600 rounded-lg group-hover:bg-cyan-600 group-hover:text-white transition-all">
+              <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-extrabold text-slate-900">Enterprise BI & Visual Systems</h3>
+          </div>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            We transform fragmented data sources into high-fidelity executive command centers. Our focus is on **sub-second latency** and **actionable UI**.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold rounded uppercase">Power BI</span>
+            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold rounded uppercase">Tableau</span>
+            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold rounded uppercase">D3.js</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 py-4 lg:py-0">
+          <ul class="grid grid-cols-1 gap-4">
+            <li class="flex items-start gap-3">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500"></div>
+              <div>
+                <span class="block font-bold text-slate-900 text-sm">Automated KPI Tracking</span>
+                <p class="text-xs text-slate-500">Eliminate manual reporting with real-time sync across ERP, CRM, and SQL sources.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500"></div>
+              <div>
+                <span class="block font-bold text-slate-900 text-sm">Row-Level Security (RLS)</span>
+                <p class="text-xs text-slate-500">Dynamic data masking ensuring regional managers only see authorized datasets.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500"></div>
+              <div>
+                <span class="block font-bold text-slate-900 text-sm">Cross-Platform Integration</span>
+                <p class="text-xs text-slate-500">Embed dashboards directly into Microsoft Teams, SharePoint, or custom web portals.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 flex flex-col justify-center items-end text-right">
+          <div class="mb-2">
+            <span class="text-3xl font-black text-slate-900">99.8%</span>
+            <span class="block text-[10px] font-bold text-cyan-600 uppercase tracking-widest">Data Accuracy</span>
+          </div>
+          <div class="h-1 w-16 bg-slate-100 rounded-full overflow-hidden">
+             <div class="h-full bg-cyan-500 w-[99%]"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-row group grid lg:grid-cols-12 py-16 border-t border-b border-slate-100 hover:bg-slate-50/50 transition-all duration-500 px-4 -mx-4 rounded-xl">
+        <div class="lg:col-span-1">
+          <span class="text-4xl font-black text-slate-200 group-hover:text-blue-500 transition-colors duration-500">02</span>
+        </div>
+        
+        <div class="lg:col-span-4 pr-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="p-2 bg-blue-50 text-blue-600 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-all">
+              <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-extrabold text-slate-900">Predictive Modeling & ML</h3>
+          </div>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            Move from hindsight to foresight. We deploy machine learning pipelines that predict future trends with mathematical precision.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold rounded uppercase">Python</span>
+            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold rounded uppercase">Scikit-Learn</span>
+            <span class="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold rounded uppercase">Azure ML</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 py-4 lg:py-0">
+          <ul class="grid grid-cols-1 gap-4">
+            <li class="flex items-start gap-3">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+              <div>
+                <span class="block font-bold text-slate-900 text-sm">Churn & Retention Analysis</span>
+                <p class="text-xs text-slate-500">Identify at-risk customers 30 days before they drop off using behavioral modeling.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+              <div>
+                <span class="block font-bold text-slate-900 text-sm">Demand Forecasting</span>
+                <p class="text-xs text-slate-500">Optimize inventory levels by predicting seasonal peaks with 90%+ confidence intervals.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+              <div>
+                <span class="block font-bold text-slate-900 text-sm">Anomaly Detection</span>
+                <p class="text-xs text-slate-500">Real-time alerts for fraud detection or unexpected system behavior deviations.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 flex flex-col justify-center items-end text-right">
+          <div class="mb-2">
+            <span class="text-3xl font-black text-slate-900">40%</span>
+            <span class="block text-[10px] font-bold text-blue-600 uppercase tracking-widest">Risk Reduction</span>
+          </div>
+          <div class="h-1 w-16 bg-slate-100 rounded-full overflow-hidden">
+             <div class="h-full bg-blue-500 w-[75%]"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-slate-50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div class="max-w-xl">
+        <h2 class="text-4xl font-black text-slate-900 tracking-tighter mb-4">Analytics in Action.</h2>
+        <p class="text-slate-500">Explore interactive samples of how we transform complex datasets into high-fidelity decision tools.</p>
+      </div>
+      <div class="flex gap-2">
+        <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-400">Sample 01: Finance</span>
+        <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-400">Sample 02: Logistics</span>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      
+      <div class="group relative">
+        <div class="mb-6">
+            <h4 class="text-xl font-bold text-slate-900">Executive Revenue Intelligence</h4>
+            <p class="text-sm text-slate-500 mt-1">Cross-departmental financial health monitoring.</p>
+        </div>
+        <div class="relative bg-slate-900 rounded-[2rem] p-6 shadow-2xl border border-slate-800 transition-transform duration-500 group-hover:-translate-y-2">
+          <div class="flex justify-between items-center mb-8 pb-4 border-b border-white/5">
+            <div class="flex gap-1.5">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500/20"></div>
+            </div>
+            <span class="text-[10px] font-mono text-slate-500 tracking-widest uppercase">Live View: FY 2025</span>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                <p class="text-[9px] text-slate-500 uppercase font-bold mb-1">Total ARR</p>
+                <p class="text-2xl font-black text-white">$12.4M</p>
+                <div class="mt-2 text-[10px] text-emerald-400 font-bold">↑ 14.2%</div>
+            </div>
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                <p class="text-[9px] text-slate-500 uppercase font-bold mb-1">Avg Churn</p>
+                <p class="text-2xl font-black text-white">1.8%</p>
+                <div class="mt-2 text-[10px] text-cyan-400 font-bold">Stable</div>
+            </div>
+          </div>
+
+          <div class="flex items-end justify-between gap-2 h-32 px-2">
+            <div class="w-full bg-slate-800 rounded-t-lg h-1/2 group-hover:h-3/4 transition-all duration-700"></div>
+            <div class="w-full bg-cyan-500 rounded-t-lg h-2/3 group-hover:h-5/6 transition-all duration-700"></div>
+            <div class="w-full bg-slate-800 rounded-t-lg h-3/4 group-hover:h-1/2 transition-all duration-700"></div>
+            <div class="w-full bg-blue-500 rounded-t-lg h-5/6 group-hover:h-full transition-all duration-700"></div>
+            <div class="w-full bg-slate-800 rounded-t-lg h-2/3 group-hover:h-3/4 transition-all duration-700"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group relative">
+        <div class="mb-6">
+            <h4 class="text-xl font-bold text-slate-900">Predictive Inventory Optimization</h4>
+            <p class="text-sm text-slate-500 mt-1">AI-driven supply chain bottleneck detection.</p>
+        </div>
+        <div class="relative bg-white rounded-[2rem] p-6 shadow-2xl border border-slate-200 transition-transform duration-500 group-hover:-translate-y-2">
+          <div class="flex justify-between items-center mb-8 pb-4 border-b border-slate-100">
+            <div class="flex gap-2 items-center">
+              <i data-lucide="zap" class="w-3 h-3 text-amber-500"></i>
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Anomaly Detection Active</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-300">Region: EMEA</span>
+          </div>
+          
+          <div class="flex justify-around mb-8">
+            <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-full h-full -rotate-90">
+                    <circle cx="40" cy="40" r="35" stroke="currentColor" stroke-width="6" fill="transparent" class="text-slate-100" />
+                    <circle cx="40" cy="40" r="35" stroke="currentColor" stroke-width="6" fill="transparent" stroke-dasharray="220" stroke-dashoffset="60" class="text-indigo-500 group-hover:stroke-dashoffset-40 transition-all duration-1000" />
+                </svg>
+                <span class="absolute text-xs font-black">82%</span>
+            </div>
+            <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-full h-full -rotate-90">
+                    <circle cx="40" cy="40" r="35" stroke="currentColor" stroke-width="6" fill="transparent" class="text-slate-100" />
+                    <circle cx="40" cy="40" r="35" stroke="currentColor" stroke-width="6" fill="transparent" stroke-dasharray="220" stroke-dashoffset="100" class="text-cyan-500 group-hover:stroke-dashoffset-70 transition-all duration-1000" />
+                </svg>
+                <span class="absolute text-xs font-black">64%</span>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex justify-between items-center p-3 bg-slate-50 rounded-xl">
+                <span class="text-[10px] font-bold text-slate-600">Predicted Stockout (Warehouse A)</span>
+                <span class="text-[10px] px-2 py-0.5 bg-red-100 text-red-600 rounded-full font-bold">High Risk</span>
+            </div>
+            <div class="flex justify-between items-center p-3 bg-slate-50 rounded-xl">
+                <span class="text-[10px] font-bold text-slate-600">Transit Delay (Port 09)</span>
+                <span class="text-[10px] px-2 py-0.5 bg-amber-100 text-amber-600 rounded-full font-bold">2.4h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="bg-black rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-cyan-500/10 to-transparent"></div>
+            
+            <div class="relative z-10 flex-1">
+                <h4 class="text-white text-3xl md:text-5xl font-black mb-6 leading-tight">Ready to build your <br/>Data Moat?</h4>
+                <p class="text-gray-400 text-lg mb-8 max-w-md">Join 50+ enterprises who use Hyquantix to secure and scale their technical operations.</p>
+                <a href="/contact" class="btn-premium inline-block">Start a Free Data Audit</a>
+            </div>
+
+            <div class="relative z-10 grid grid-cols-2 gap-4 w-full md:w-auto">
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                    <i data-lucide="shield-check" class="text-cyan-400 mb-2"></i>
+                    <p class="text-white font-bold">Secure</p>
+                </div>
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl mt-4">
+                    <i data-lucide="zap" class="text-indigo-400 mb-2"></i>
+                    <p class="text-white font-bold">Fast</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-gray-50 border-t border-gray-200 py-12 text-gray-500 text-sm">
+    <div class="container mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+      <div>
+        <h4 class="text-base font-semibold text-gray-900 mb-3">Hyquantix Technologies</h4>
+        <p class="text-gray-600 leading-relaxed mb-3">
+          Intelligent, reliable, and secure digital solutions built for scalable growth.
+        </p>
+        <p class="text-gray-400 text-xs">GautamBudh Nagar, India</p>
+      </div>
+      <div>
+        <h5 class="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Company</h5>
+        <ul class="space-y-1">
+          <li><a href="/about/" class="hover:text-cyan-600 transition">About</a></li>
+          <li><a href="/career/" class="hover:text-cyan-600 transition">Careers</a></li>
+          <li><a href="/services/" class="hover:text-cyan-600 transition">What We Do</a></li>
+          <li><a href="/contact/" class="hover:text-cyan-600 transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Resources</h5>
+        <ul class="space-y-1">
+          <li><a href="/privacy/" class="hover:text-cyan-600 transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-cyan-600 transition">Terms</a></li>
+          <li><a href="#" class="hover:text-cyan-600 transition">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Contact</h5>
+        <p class="text-gray-600 mb-1">📧 support@hyquantix.com</p>
+        <p class="text-gray-600 mb-3">📞 +91-8700790835</p>
+        <div class="flex justify-center md:justify-start space-x-4 text-lg">
+          <a href="https://www.linkedin.com/company/hyquantixtechnology" class="hover:text-cyan-600 transition"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="hover:text-cyan-600 transition"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-cyan-600 transition"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-200 mt-10 pt-4 text-center text-xs text-gray-400">
+      © 2025 Hyquantix Technologies Pvt. Ltd. · All Rights Reserved.
+    </div>
+  </footer>
+<script>
+/* Stagger reveal on scroll */
+const cards = document.querySelectorAll(".analytics-card");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if(entry.isIntersecting){
+      setTimeout(() => entry.target.classList.add("show"), i * 120);
+      observer.unobserve(entry.target);
+    }
+  });
+},{ threshold: 0.15 });
+
+cards.forEach(card => observer.observe(card));
+
+/* Counter animation on hover */
+cards.forEach(card => {
+  const counter = card.querySelector("[data-count]");
+  let played = false;
+
+  card.addEventListener("mouseenter", () => {
+    if(played || !counter) return;
+    played = true;
+
+    let current = 0;
+    const target = +counter.dataset.count;
+    const step = Math.ceil(target / 40);
+
+    const interval = setInterval(() => {
+      current += step;
+      if(current >= target){
+        counter.textContent = target;
+        clearInterval(interval);
+      } else {
+        counter.textContent = current;
+      }
+    }, 20);
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* 1️⃣ Text reveal sequence */
+  const heroText = document.getElementById("hero-text");
+  setTimeout(() => {
+    heroText.classList.add("hero-reveal");
+    heroText.style.opacity = 1;
+  }, 350);
+
+  /* 2️⃣ Highlight pulse */
+  const highlight = document.getElementById("hero-highlight");
+  setTimeout(() => highlight.classList.add("pulse"), 800);
+
+  /* 3️⃣ Magnetic buttons (desktop only) */
+  if (window.matchMedia("(pointer: fine)").matches) {
+    document.querySelectorAll(".btn-primary, .btn-ghost").forEach(btn => {
+
+      btn.addEventListener("mousemove", e => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px)`;
+      });
+
+      btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "translate(0,0)";
+      });
+
+    });
+  }
+
+});
+</script>
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>
